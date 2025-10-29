@@ -1,7 +1,8 @@
+// Nom d'utilisateur GitHub
 const username = "ImNotaJoke";
 const reposContainer = document.getElementById("repos");
 
-// Couleurs approximatives pour langages (GitHub-like)
+// Couleurs par langage GitHub
 const langColors = {
   "JavaScript": "#f1e05a",
   "Python": "#3572A5",
@@ -18,90 +19,70 @@ const langColors = {
 };
 
 async function fetchRepos(user) {
+  if (!reposContainer) return console.error("#repos introuvable !");
+
   try {
+    // 1 seule requête pour tous les repos publics
     const res = await fetch(`https://api.github.com/users/${user}/repos`);
     if (!res.ok) throw new Error(`HTTP error ${res.status}`);
-    let repos = await res.json();
+    const repos = await res.json();
 
     if (!repos.length) {
       reposContainer.textContent = "Aucun projet trouvé.";
       return;
     }
 
-    // Trier par date de modification (desc)
-    repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+    // Trier par date de mise à jour décroissante
+    repos.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
 
-    for (const repo of repos) {
+    // Créer une carte pour chaque repo
+    repos.forEach(repo => {
       const repoDiv = document.createElement("div");
       repoDiv.className = "repo";
 
-      // Titre du dépôt
+      // Titre + lien
       const title = document.createElement("h2");
-      const titleLink = document.createElement("a");
-      titleLink.href = repo.html_url;
-      titleLink.textContent = repo.name;
-      titleLink.target = "_blank";
-      title.appendChild(titleLink);
+      const link = document.createElement("a");
+      link.href = repo.html_url;
+      link.target = "_blank";
+      link.textContent = repo.name;
+      title.appendChild(link);
 
       // Description
-      const description = document.createElement("p");
-      description.className = "description";
-      description.textContent = repo.description || "Pas de description";
+      const desc = document.createElement("p");
+      desc.textContent = repo.description || "Pas de description";
 
-      // Langages
+      // Langage principal
       const langDiv = document.createElement("div");
       langDiv.className = "languages";
-      try {
-        const langRes = await fetch(repo.languages_url);
-        const languages = await langRes.json();
-        if (Object.keys(languages).length === 0) {
-          langDiv.textContent = "Aucun langage détecté";
-        } else {
-          for (const lang in languages) {
-            const span = document.createElement("span");
-            span.textContent = lang;
-            span.style.backgroundColor = langColors[lang] || "#6e5494";
-            langDiv.appendChild(span);
-          }
-        }
-      } catch {
-        langDiv.textContent = "Erreur récupération langages";
+      if (repo.language) {
+        const span = document.createElement("span");
+        span.textContent = repo.language;
+        span.style.backgroundColor = langColors[repo.language] || "#6e5494";
+        span.className = "lang-badge";
+        langDiv.appendChild(span);
+      } else {
+        langDiv.textContent = "Langage inconnu";
       }
 
-      // Auteurs / contributeurs
-      const authorsDiv = document.createElement("div");
-      authorsDiv.className = "authors";
-      try {
-        const contributorsRes = await fetch(repo.contributors_url);
-        const contributors = await contributorsRes.json();
-        if (contributors.length === 0) {
-          authorsDiv.textContent = "Aucun contributeur";
-        } else {
-          contributors.forEach(user => {
-            const a = document.createElement("a");
-            a.href = user.html_url;
-            a.target = "_blank";
-            a.textContent = user.login;
-            authorsDiv.appendChild(a);
-          });
-        }
-      } catch {
-        authorsDiv.textContent = "Erreur récupération contributeurs";
-      }
+      // Auteur
+      const authorDiv = document.createElement("div");
+      const authorLink = document.createElement("a");
+      authorLink.href = repo.owner.html_url;
+      authorLink.target = "_blank";
+      authorLink.textContent = repo.owner.login;
+      authorDiv.appendChild(authorLink);
 
-      // Assemblage du div
-      repoDiv.appendChild(title);
-      repoDiv.appendChild(langDiv);
-      repoDiv.appendChild(description);
-      repoDiv.appendChild(authorsDiv);
-
+      // Assemblage final
+      repoDiv.append(title, langDiv, desc, authorDiv);
       reposContainer.appendChild(repoDiv);
-    }
-  } catch (err) {
-    console.error("Erreur:", err);
+    });
+
+  } catch(err) {
+    console.error(err);
     reposContainer.textContent = "Impossible de récupérer les projets.";
   }
 }
-window.onload = () => {
-  fetchRepos(username);
-};
+
+// Lancer la récupération après chargement complet du DOM
+window.onload = () => fetchRepos(username);
