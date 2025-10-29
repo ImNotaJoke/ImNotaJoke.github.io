@@ -1,0 +1,103 @@
+/* ------------------ Style général ------------------ */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d1117; /* fond GitHub dark */
+      color: #c9d1d9;
+    }
+    main {
+      max-width: 1000px;
+      margin: auto;
+      
+      padding-top: 120px; /* espace pour header fixe */
+     padding-left: 20px; /* espace sur les côtés */
+      padding-right: 20px;
+     box-sizing: border-box; /* inclut padding dans la largeur totale */
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2em;
+      color: #58a6ff;
+    }
+
+    /* ------------------ Carte dépôt ------------------ */
+    .repo {
+      background-color: #161b22; /* légèrement plus clair que le fond */
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow:
+        0 6px 12px rgba(0,0,0,0.5),  /* ombre externe */
+        inset 0 2px 6px rgba(255,255,255,0.05); /* ombre interne */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .repo:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow:
+        0 12px 24px rgba(0,0,0,0.6),
+        inset 0 2px 6px rgba(255,255,255,0.08);
+    }
+
+    /* Titre du dépôt */
+    .repo h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.6em;
+    }
+    .repo h2 a {
+      color: #58a6ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .repo h2 a:hover {
+      text-decoration: underline;
+    }
+
+    /* Langages */
+    .languages span {
+      display: inline-block;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.85em;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    /* Description */
+    .repo p.description {
+      margin: 12px 0;
+      color: #8b949e;
+    }
+
+    /* Auteurs */
+    .authors a {
+      margin-right: 12px;
+      color: #58a6ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .authors a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Container des cards --- */
+#repos {
+  display: flex;        /* active le flexbox */
+  flex-wrap: wrap;      /* permet de passer à la ligne si besoin */
+  gap: 20px;            /* espace uniforme entre les cartes */
+  justify-content: center; /* centre les cartes */
+}
+
+/* --- Cards responsive --- */
+.repo {
+  flex: 1 1 300px;      /* min width 300px, peut grandir ou rétrécir */
+  max-width: 400px;     /* largeur max sur grand écran */
+}
+
+@media (max-width: 768px) {
+  .repo {
+    flex: 1 1 90%;  /* carte prend presque toute la largeur sur mobile */
+  }
+}

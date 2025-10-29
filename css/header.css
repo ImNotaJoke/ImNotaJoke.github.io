@@ -1,0 +1,133 @@
+/* --- HEADER FIXE --- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* --- NAVIGATION --- */
+header nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+}
+
+header nav li {
+  list-style: none;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #161b1b;
+}
+
+/* --- VAGUE TRANSPARENTE ET FLUIDE --- */
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300%;
+  height: 50px;
+
+  /* ✅ Vague semi-transparente en SVG */
+  background: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 50'>\
+  <path fill='rgba(20, 20, 20, 0.6)' d='M0,30 Q75,10 150,30 T300,30 V50 H0 Z'/>\
+  </svg>");
+  background-repeat: repeat-x;
+  background-size: 300px 50px;
+
+  animation: wave-slide 8s linear infinite;
+  pointer-events: none;
+}
+
+/* --- Animation plus douce --- */
+@keyframes wave-slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-300px); } /* ✅ correspond à la largeur du SVG → boucle parfaite */
+}
+
+/* --- Évite tout débordement --- */
+html, body {
+  overflow-x: hidden;
+}
+
+/* --- BURGER --- */
+.burger {
+  display: none;
+}
+
+/* --- VERSION MOBILE --- */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    border-radius: 2px;
+  }
+
+  nav {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    flex-direction: column;
+    background-color: #111;
+    width: 200px;
+    height: 100vh;
+    padding-top: 100px;
+    transition: left 0.3s ease;
+  }
+
+  nav.active {
+    left: 0;
+  }
+
+  /* 🚫 Pas de vague sur mobile */
+  header::after {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
+/* --- ESPACE POUR LE MAIN --- */
+main {
+  padding-top: 120px;
+}
+
+/* --- AJOUTER UNE OMBRE LÉGÈRE --- */
+header {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ /*--------------------------------*/
+/* --- FIN HEADER --- */
+

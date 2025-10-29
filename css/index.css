@@ -1,0 +1,12 @@
+body{
+    size: auto;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(179, 93, 93);
+}
+
+h1{
+    color: white;
+    text-align: center;
+    margin-top: 200rem;
+}
