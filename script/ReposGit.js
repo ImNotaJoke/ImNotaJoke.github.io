@@ -102,5 +102,6 @@ async function fetchRepos(user) {
     reposContainer.textContent = "Impossible de récupérer les projets.";
   }
 }
-
-fetchRepos(username);
+window.onload = () => {
+  fetchRepos(username);
+};
