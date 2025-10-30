@@ -6,6 +6,17 @@ burger.addEventListener('click', () => {
   burger.classList.toggle('toggle');
 });
 
+// Fermer menu si clic en dehors
+document.addEventListener("click", (e) => {
+  if(nav.classList.contains("active")) {
+    // Vérifie que le clic n'est ni sur nav ni sur burger
+    if(!nav.contains(e.target) && !burger.contains(e.target)) {
+      nav.classList.remove("active");
+      burger.classList.remove("toggle");
+    }
+  }
+});
+
 
 
 // Effet de vague sur le header lors du scroll pour le style
