@@ -1,12 +1,37 @@
 body{
-    size: auto;
-    height: 100%;
-    width: 100%;
-    background-color: rgb(179, 93, 93);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d1117; /* fond GitHub dark */
+    color: #c9d1d9;
 }
 
-h1{
-    color: white;
-    text-align: center;
-    margin-top: 200rem;
+main {
+    max-width: 1000px;
+    margin-left: 10%;
+    margin-top: 1%;
+    padding-top: 120px; /* espace pour header fixe */
+    padding-left: 20px; /* espace sur les côtés */
+    padding-right: 20px;
+    box-sizing: border-box; /* inclut padding dans la largeur totale */
+}
+
+
+h1 {
+  display: inline-block;
+  position: relative;
+  font-size: 3rem; /* ajustable */
+  color: #ffffff;
+  margin-bottom: 1em;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.1em; /* distance entre le texte et la “pinceau” */
+  width: 100%;
+  height: 0.35em; /* épaisseur du trait */
+  background: linear-gradient(120deg, #2234dd 20%, transparent 30%, #1523a8 50%, transparent 70%, #1b2bbb 80%);
+  transform: rotate(-2deg); /* léger angle pour un effet “fait main” */
+  z-index: -1;
 }
