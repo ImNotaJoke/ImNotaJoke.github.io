@@ -1,25 +1,23 @@
-body{
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0d1117; /* fond GitHub dark */
-    color: #c9d1d9;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
 }
 
 main {
-    max-width: 1000px;
-    margin-left: 10%;
-    margin-top: 1%;
-    padding-top: 120px; /* espace pour header fixe */
-    padding-left: 20px; /* espace sur les côtés */
-    padding-right: 20px;
-    box-sizing: border-box; /* inclut padding dans la largeur totale */
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
 }
-
 
 h1 {
   display: inline-block;
   position: relative;
-  font-size: 3rem; /* ajustable */
+  font-size: 3rem;
   color: #ffffff;
   margin-bottom: 1em;
 }
@@ -28,10 +26,100 @@ h1::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 0.1em; /* distance entre le texte et la “pinceau” */
+  bottom: 0.1em;
   width: 100%;
-  height: 0.35em; /* épaisseur du trait */
+  height: 0.35em;
   background: linear-gradient(120deg, #2234dd 20%, transparent 30%, #1523a8 50%, transparent 70%, #1b2bbb 80%);
-  transform: rotate(-2deg); /* léger angle pour un effet “fait main” */
+  transform: rotate(-2deg);
   z-index: -1;
 }
+
+.repos-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  margin-top: 30px;
+  position: relative;
+}
+
+.repos-container::-webkit-scrollbar {
+  display: none;
+}
+
+.repos-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.repo {
+  flex: 0 0 30%;
+  background-color: #161b22;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.repo h2 a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.repo h2 a:hover {
+  text-decoration: underline;
+}
+
+.lang-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.repo p {
+  flex-grow: 1;
+  color: #c9d1d9;
+}
+
+.repo div a {
+  color: #8b949e;
+  text-decoration: none;
+}
+
+.repo div a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .repos-container {
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .repo {
+    flex: 0 0 100%;
+    margin-right: 15px;
+  }
+}
+
+#repos-section {
+  position: relative;
+}
+
+.repos-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: #58a6ff;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+
