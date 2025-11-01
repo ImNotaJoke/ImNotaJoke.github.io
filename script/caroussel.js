@@ -1,7 +1,6 @@
-// ==== CONFIG ==== //
 const username = "ImNotaJoke";
 const reposContainer = document.getElementById("repos");
-const progressBar = document.querySelector(".repos-progress");
+const dotsContainer = document.querySelector(".repos-dots");
 
 const langColors = {
   "JavaScript": "#f1e05a",
@@ -18,15 +17,12 @@ const langColors = {
   "PHP": "#4F5D95"
 };
 
-let isPaused = false;
+let currentIndex = 0;
+let autoInterval;
 let inactivityTimeout;
-let lastTime = null;
-const scrollSpeed = 0.2; // vitesse automatique
 
-// ==== FONCTIONS ==== //
-
-// Crée une carte GitHub
-function createRepoCard(repo) {
+// ==== Création des cartes ====
+function createRepoCard(repo){
   const repoDiv = document.createElement("div");
   repoDiv.className = "repo";
 
@@ -62,112 +58,122 @@ function createRepoCard(repo) {
   reposContainer.appendChild(repoDiv);
 }
 
-// Récupère les 3 derniers projets GitHub
-async function fetchRepos(user) {
-  if (!reposContainer) return;
+// ==== Dots ====
+function createDots(num){
+  dotsContainer.innerHTML = "";
+  for(let i=0;i<num;i++){
+    const dot = document.createElement("div");
+    dot.className = "dot";
+    if(i===0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      goToSlide(i);
+      pauseAutoScroll();
+    });
+    dotsContainer.appendChild(dot);
+  }
+}
 
-  try {
+function updateDots(){
+  const dots = Array.from(dotsContainer.children);
+  dots.forEach(dot => dot.classList.remove("active"));
+  if(dots[currentIndex]) dots[currentIndex].classList.add("active");
+}
+
+// ==== Navigation card par card ====
+function goToSlide(index){
+  const card = reposContainer.children[index];
+  if(card){
+    reposContainer.scrollLeft = card.offsetLeft;
+    currentIndex = index;
+    updateDots();
+  }
+}
+
+function nextSlide(){
+  currentIndex++;
+  if(currentIndex >= reposContainer.children.length){
+    currentIndex = 0;
+  }
+  goToSlide(currentIndex);
+}
+
+// ==== Auto-scroll toutes les 3s ====
+function startAutoScroll(){
+  autoInterval = setInterval(nextSlide, 3000);
+}
+
+function pauseAutoScroll(){
+  clearInterval(autoInterval);
+  clearTimeout(inactivityTimeout);
+  inactivityTimeout = setTimeout(()=>startAutoScroll(), 3000);
+}
+
+// ==== Swipe / Drag ====
+let isDragging = false;
+let startX;
+let scrollStart;
+
+function startDrag(x){
+  isDragging = true;
+  pauseAutoScroll();
+  startX = x;
+  scrollStart = reposContainer.scrollLeft;
+}
+
+function doDrag(x){
+  if(!isDragging) return;
+  const walk = startX - x;
+  reposContainer.scrollLeft = scrollStart + walk;
+}
+
+function endDrag(){
+  if(isDragging){
+    // met à jour l'index courant après drag
+    const cards = Array.from(reposContainer.children);
+    const closestIndex = cards.reduce((closest, card, idx)=>{
+      const diff = Math.abs(card.offsetLeft - reposContainer.scrollLeft);
+      return diff < Math.abs(cards[closest].offsetLeft - reposContainer.scrollLeft) ? idx : closest;
+    }, 0);
+    currentIndex = closestIndex;
+    updateDots();
+  }
+  isDragging = false;
+}
+
+// ==== Fetch Repos ====
+async function fetchRepos(user){
+  try{
     const res = await fetch(`https://api.github.com/users/${user}/repos`);
-    if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+    if(!res.ok) throw new Error(`HTTP error ${res.status}`);
     const repos = await res.json();
-
-    if (!repos.length) {
+    if(!repos.length){
       reposContainer.textContent = "Aucun projet trouvé.";
       return;
     }
-
     repos.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
-    repos.slice(0,3).forEach(repo => createRepoCard(repo));
-
-    cloneCardsForLoop(); // duplication pour scroll infini
-
-  } catch(err) {
+    const latest = repos.slice(0,3);
+    latest.forEach(repo => createRepoCard(repo));
+    createDots(latest.length);
+    startAutoScroll();
+  } catch(err){
     console.error(err);
     reposContainer.textContent = "Impossible de récupérer les projets.";
   }
 }
 
-// Duplication des cartes pour scroll infini
-function cloneCardsForLoop() {
-  const cards = Array.from(reposContainer.children);
-  cards.forEach(card => {
-    const clone = card.cloneNode(true);
-    reposContainer.appendChild(clone);
-  });
-}
-
-// Barre de progression split en tiers
-function updateProgressBar() {
-  const totalScroll = reposContainer.scrollWidth / 2; // moitié du scroll (3 cartes)
-  const pos = reposContainer.scrollLeft % totalScroll;
-  const percent = (pos / totalScroll) * 100;
-  progressBar.style.width = `${percent}%`;
-}
-
-// Animation auto-scroll fluide infinie
-function animateScroll(timestamp) {
-  if (!lastTime) lastTime = timestamp;
-  const delta = timestamp - lastTime;
-  lastTime = timestamp;
-
-  if (!isPaused && reposContainer.scrollWidth > reposContainer.clientWidth) {
-    reposContainer.scrollLeft += scrollSpeed * delta;
-
-    const resetPoint = reposContainer.scrollWidth / 2;
-    if (reposContainer.scrollLeft >= resetPoint) {
-      reposContainer.scrollLeft -= resetPoint;
-    }
-  }
-
-  updateProgressBar();
-  requestAnimationFrame(animateScroll);
-}
-
-// Pause auto-scroll après interaction
-function pauseCarousel() {
-  isPaused = true;
-  clearTimeout(inactivityTimeout);
-  inactivityTimeout = setTimeout(() => {
-    isPaused = false;
-  }, 3000);
-}
-
-// Swipe / drag manuel
-let isDragging = false;
-let startX;
-let scrollStart;
-
-function startDrag(x) {
-  isDragging = true;
-  pauseCarousel();
-  startX = x;
-  scrollStart = reposContainer.scrollLeft;
-}
-
-function doDrag(x) {
-  if (!isDragging) return;
-  const walk = startX - x;
-  reposContainer.scrollLeft = scrollStart + walk;
-}
-
-function endDrag() {
-  isDragging = false;
-}
-
-// ==== ÉVÉNEMENTS ==== //
-reposContainer.addEventListener('mousedown', (e) => startDrag(e.pageX));
-reposContainer.addEventListener('mousemove', (e) => doDrag(e.pageX));
+// ==== Événements ====
+reposContainer.addEventListener('mousedown', e=>startDrag(e.pageX));
+reposContainer.addEventListener('mousemove', e=>doDrag(e.pageX));
 reposContainer.addEventListener('mouseup', endDrag);
 reposContainer.addEventListener('mouseleave', endDrag);
 
-reposContainer.addEventListener('touchstart', (e) => startDrag(e.touches[0].pageX), {passive:true});
-reposContainer.addEventListener('touchmove', (e) => doDrag(e.touches[0].pageX), {passive:true});
+reposContainer.addEventListener('touchstart', e=>startDrag(e.touches[0].pageX), {passive:true});
+reposContainer.addEventListener('touchmove', e=>doDrag(e.touches[0].pageX), {passive:true});
 reposContainer.addEventListener('touchend', endDrag);
 
-reposContainer.addEventListener('wheel', pauseCarousel, {passive:true});
+reposContainer.addEventListener('wheel', pauseAutoScroll, {passive:true});
 
-// ==== INIT ==== //
-document.addEventListener("DOMContentLoaded", async () => {
-  await fetchRepos(username);
-  requestAnimationFrame(animateScroll);
+// ==== INIT ====
+document.addEventListener("DOMContentLoaded", ()=>{
+  fetchRepos(username);
 });

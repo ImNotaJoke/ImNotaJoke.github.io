@@ -105,21 +105,36 @@ h1::after {
     flex: 0 0 100%;
     margin-right: 15px;
   }
+
+  .repos-dots {
+    display: flex;
+  }
 }
 
 #repos-section {
   position: relative;
 }
 
-.repos-progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 4px;
-  width: 0%;
-  background-color: #58a6ff;
-  border-radius: 2px;
-  transition: width 0.1s linear;
+.repos-dots {
+  display: none; /* par défaut caché */
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
 }
 
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #444;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
 
+.dot:hover {
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: #58a6ff;
+}
