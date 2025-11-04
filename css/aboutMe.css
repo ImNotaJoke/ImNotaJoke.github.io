@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+
+/* --- ABOUT PAGE --- */
+
+.about-section,
+.skills-section,
+.timeline-section,
+.interests-section {
+  width: 100%;
+
+}
+
+/* TITRES */
+h1, h2 {
+font-size: 3rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.1em;
+  width: 100%;
+  height: 0.2em;
+  background: linear-gradient(120deg, #2234dd 20%, transparent 30%, #1523a8 50%, transparent 70%, #1b2bbb 80%);
+  transform: rotate(-2deg);
+  z-index: -1;
+}
+
+h2, h1{
+  font-size: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.1em;
+  width: 100%;
+  height: 0.2em;
+  background: linear-gradient(120deg, #2234dd 20%, transparent 30%, #1523a8 50%, transparent 70%, #1b2bbb 80%);
+  transform: rotate(-2deg);
+  z-index: -1;
+}
+
+/* --- ABOUT CONTENT --- */
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #161b22;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+}
+
+.about-text {
+  flex: 1 1 60%;
+}
+
+.about-text p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+  color: #c9d1d9;
+}
+
+.about-text strong {
+  color: #58a6ff;
+}
+
+.about-photo {
+  flex: 1 1 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo img {
+  max-width: 200px;
+  border-radius: 50%;
+  border: 3px solid #58a6ff;
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+}
+
+/* --- SKILLS --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.skill-card {
+  background-color: #161b22;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s, box-shadow 0.3s;
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+}
+
+/* --- TIMELINE --- */
+.timeline-item {
+  margin-bottom: 15px;
+  padding-left: 15px;
+  border-left: 3px solid #58a6ff;
+}
+
+.timeline-item .year {
+  display: block;
+  color: #8b949e;
+  font-size: 0.9rem;
+}
+
+.timeline-item p {
+  margin: 5px 0;
+  color: #c9d1d9;
+}
+
+/* --- INTERESTS --- */
+.interests-list {
+  list-style: none;
+  padding: 0;
+}
+
+.interests-list li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .about-photo img {
+    margin-bottom: 20px;
+  }
+
+  h2::after {
+    display: none;
+  }
+}
