@@ -1,3 +1,4 @@
+/* ===================== Global ===================== */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -8,9 +9,10 @@ body {
 main {
   max-width: 1000px;
   margin: 0 auto;
-  padding-top: 120px;
+  padding-top: 50px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 60px;
   box-sizing: border-box;
 }
 
@@ -34,6 +36,82 @@ h1::after {
   z-index: -1;
 }
 
+/* ===================== Hero ===================== */
+#hero {
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 40px;
+  background: linear-gradient(135deg, #091369, #050d52);
+  color: #fff;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* ===================== À propos ===================== */
+#about-preview {
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #161b22;
+  border-radius: 12px;
+  max-width: 900px;
+  text-align: justify;
+}
+
+#about-preview h2 {
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#about-preview p {
+  line-height: 1.6;
+}
+
+#about-preview .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #58a6ff;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+#about-preview .btn:hover {
+  background-color: #1b2bbb;
+}
+
+
+/* ===================== Responsive ===================== */
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #hero p {
+    font-size: 1rem;
+  }
+
+  #about-preview {
+    padding: 15px;
+    margin: 30px 10px;
+  }
+}
+
+/* ===================== Repos GitHub ===================== */
+/* J’ai gardé intacte toute ta section repos pour ton script */
 .repos-container {
   display: flex;
   gap: 20px;
@@ -116,7 +194,7 @@ h1::after {
 }
 
 .repos-dots {
-  display: none; /* par défaut caché */
+  display: none;
   justify-content: center;
   gap: 8px;
   margin-top: 10px;
