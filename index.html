@@ -6,6 +6,7 @@
     <link href="css/footer.css" rel="stylesheet">
     <link href="css/header.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
+    <link href="css/menu.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/html.png">
 
     
@@ -21,10 +22,30 @@
         </div>
 
         <nav>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="html/aboutMe.html">About me</a></li>
+            <li><a href="index.html">Home</a>
+                <ul class="submenu">
+                    <li><a href="#hero">Hero</a></li>
+                    <li><a href="#deployments">Sites Déployés</a></li>
+                    <li><a href="#about-preview">À propos de moi</a></li>
+                    <li><a href="#repos-section">Dernière mise à jour</a></li>
+                </ul>
+            </li>
+            <li><a href="html/aboutMe.html">About me</a>
+                <ul class="submenu">
+                    <li><a href="html/aboutMe.html#about-me-hero">Présentation</a></li>
+                    <li><a href="html/aboutMe.html#skills">Compétences</a></li>
+                    <li><a href="html/aboutMe.html#cv">CV</a></li>
+                </ul>
+            </li>
             <li><a href="html/projet.html">Project</a></li>
-            <li><a href="html/contact.html">Contact</a></li>
+            <li><a href="html/contact.html">Contact</a>
+                <ul class="submenu">
+                    <li><a href="html/contact.html#faq-section">Avant de me contacter</a></li>
+                    <li><a href="html/contact.html#contact-section">Contactez-moi</a></li>
+                    <li><a href="html/contact.html#availability-section">Disponibilité</a></li>
+                    <li><a href="html/contact.html#map-section">Où me trouver</a></li>
+                </ul>
+            </li>
         </nav>
 
     </header>

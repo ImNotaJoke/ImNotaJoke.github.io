@@ -6,6 +6,7 @@
     <link href="../css/footer.css" rel="stylesheet">
     <link href="../css/header.css" rel="stylesheet">
     <link href="../css/aboutMe.css" rel="stylesheet">
+    <link href="../css/menu.css" rel="stylesheet">
     <script src="../script/Header.js" defer></script>
     <script src="../script/Footer.js" defer></script>
     <link rel="icon" type="image/png" href="../img/html.png">
@@ -21,17 +22,37 @@
         </div>
 
         <nav>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="aboutMe.html" class="active">About me</a></li>
+            <li><a href="../index.html">Home</a>
+                <ul class="submenu">
+                    <li><a href="../index.html#hero">Hero</a></li>
+                    <li><a href="../index.html#deployments">Sites Déployés</a></li>
+                    <li><a href="../index.html#about-preview">À propos de moi</a></li>
+                    <li><a href="../index.html#repos-section">Dernière mise à jour</a></li>
+                </ul>
+            </li>
+            <li><a href="aboutMe.html" class="active">About me</a>
+                <ul class="submenu">
+                    <li><a href="#about-section">Présentation</a></li>
+                    <li><a href="#skills-section">Compétences</a></li>
+                    <li><a href="#timeline-section">Parcours</a></li>
+                </ul>
+            </li>
             <li><a href="projet.html">Project</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contact</a>
+                <ul class="submenu">
+                    <li><a href="contact.html#faq-section">Avant de me contacter</a></li>
+                    <li><a href="contact.html#contact-section">Contactez-moi</a></li>
+                    <li><a href="contact.html#availability-section">Disponibilité</a></li>
+                    <li><a href="contact.html#map-section">Où me trouver</a></li>
+                </ul>
+            </li>
         </nav>
 
     </header>
 
     <main>
         <!-- SECTION ABOUT -->
-        <section class="about-section">
+        <section id="about-section" class="about-section">
             <h1>About Me</h1>
             <div class="about-content">
             <div class="about-text">
@@ -60,7 +81,7 @@
         </section>
 
         <!-- SECTION COMPÉTENCES -->
-        <section class="skills-section">
+        <section id="skills-section" class="skills-section">
             <h2>Compétences Techniques</h2>
             <div class="skills-grid">
             <div class="skill-card">HTML</div>
@@ -90,7 +111,7 @@
         </section>
 
         <!-- SECTION PARCOURS -->
-        <section class="timeline-section">
+        <section id="timeline-section" class="timeline-section">
             <h2>Parcours</h2>
             <div class="timeline">
             <div class="timeline-item">

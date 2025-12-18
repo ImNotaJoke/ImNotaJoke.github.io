@@ -6,6 +6,7 @@
   <link href="../css/footer.css" rel="stylesheet">
   <link href="../css/header.css" rel="stylesheet">
   <link href="../css/contact.css" rel="stylesheet">
+  <link href="../css/menu.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="../img/html.png">
 
   <title>Contact</title>
@@ -19,10 +20,30 @@
     </div>
 
     <nav>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="aboutMe.html">About me</a></li>
+      <li><a href="../index.html">Home</a>
+          <ul class="submenu">
+              <li><a href="../index.html#hero">Hero</a></li>
+              <li><a href="../index.html#deployments">Sites Déployés</a></li>
+              <li><a href="../index.html#about-preview">À propos de moi</a></li>
+              <li><a href="../index.html#repos-section">Dernière mise à jour</a></li>
+          </ul>
+      </li>
+      <li><a href="aboutMe.html">About me</a>
+          <ul class="submenu">
+              <li><a href="aboutMe.html#about-section">Présentation</a></li>
+              <li><a href="aboutMe.html#skills-section">Compétences</a></li>
+              <li><a href="aboutMe.html#timeline-section">Parcours</a></li>
+          </ul>
+      </li>
       <li><a href="projet.html">Project</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="contact.html" class="active">Contact</a>
+          <ul class="submenu">
+              <li><a href="#faq-section">Avant de me contacter</a></li>
+              <li><a href="#contact-section">Contactez-moi</a></li>
+              <li><a href="#availability-section">Disponibilité</a></li>
+              <li><a href="#map-section">Où me trouver</a></li>
+          </ul>
+      </li>
     </nav>
   </header>
 
@@ -36,7 +57,7 @@
         </div>
     </div>
 
-    <section class="faq-section">
+    <section id="faq-section" class="faq-section">
       <h1>Avant de me contacter</h1>
       <ul>
         <li>📅 Disponible à partir d’<strong>avril 2026</strong> pour une offre de stage.</li>
@@ -46,7 +67,7 @@
       </ul>
     </section>
 
-    <section class="contact-section">
+    <section id="contact-section" class="contact-section">
       <h1>Contactez-moi</h1>
       <!-- CONTENU CONTACT -->
       <div class="contact-content">
@@ -73,7 +94,7 @@
       </div>
     </section>
 
-    <section class="availability-section">
+    <section id="availability-section" class="availability-section">
       <h1>Disponibilité</h1>
       <p>
         Actuellement étudiant en <strong>BUT Informatique</strong>, je suis à la recherche d’un 
@@ -86,7 +107,7 @@
       </p>
     </section>
 
-    <section class="map-section">
+    <section id="map-section" class="map-section">
       <h1>Où me trouver</h1>
       <iframe 
         src="https://www.google.com/maps?q=Tourcoing,+Lille,+France&output=embed"

@@ -30,7 +30,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   z-index: 2000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -44,6 +43,7 @@ header nav {
 
 header nav li {
   list-style: none;
+  position: relative;
 }
 
 header nav a {
