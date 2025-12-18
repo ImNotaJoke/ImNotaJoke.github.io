@@ -10,7 +10,7 @@
     <script src="../script/Header.js" defer></script>
     <script src="../script/Footer.js" defer></script>
     <link rel="icon" type="image/png" href="../img/html.png">
-    <title>About me</title>
+    <title data-translate-key="title_about">À propos de moi</title>
 </head>
 <body>
     <header>
@@ -21,29 +21,33 @@
             <div class="line3"></div>
         </div>
 
+        <div class="lang-switcher">
+            <span class="lang-fr active">FR</span>
+            <span class="lang-en">EN</span>
+        </div>
+
         <nav>
-            <li><a href="../index.html">Home</a>
+            <li><a href="../index.html" data-translate-key="nav_home">Accueil</a>
                 <ul class="submenu">
-                    <li><a href="../index.html#hero">Hero</a></li>
-                    <li><a href="../index.html#deployments">Sites Déployés</a></li>
-                    <li><a href="../index.html#about-preview">À propos de moi</a></li>
-                    <li><a href="../index.html#repos-section">Dernière mise à jour</a></li>
+                    <li><a href="../index.html#hero" data-translate-key="submenu_hero">Haut de page</a></li>
+                    <li><a href="../index.html#deployments" data-translate-key="submenu_deployments">Sites Déployés</a></li>
+                    <li><a href="../index.html#about-preview" data-translate-key="submenu_about_preview">À propos de moi</a></li>
+                    <li><a href="../index.html#repos-section" data-translate-key="submenu_repos_section">Dernière mise à jour</a></li>
                 </ul>
             </li>
-            <li><a href="aboutMe.html" class="active">About me</a>
+            <li><a href="aboutMe.html" class="active" data-translate-key="nav_about">À propos</a>
                 <ul class="submenu">
-                    <li><a href="#about-section">Présentation</a></li>
-                    <li><a href="#skills-section">Compétences</a></li>
+                    <li><a href="#about-section" data-translate-key="submenu_about_presentation">Présentation</a></li>
+                    <li><a href="#skills-section" data-translate-key="submenu_about_skills">Compétences</a></li>
                     <li><a href="#timeline-section">Parcours</a></li>
                 </ul>
             </li>
-            <li><a href="projet.html">Project</a></li>
-            <li><a href="contact.html">Contact</a>
+            <li><a href="projet.html" data-translate-key="nav_projects">Projets</a></li>
+            <li><a href="contact.html" data-translate-key="nav_contact">Contact</a>
                 <ul class="submenu">
-                    <li><a href="contact.html#faq-section">Avant de me contacter</a></li>
-                    <li><a href="contact.html#contact-section">Contactez-moi</a></li>
-                    <li><a href="contact.html#availability-section">Disponibilité</a></li>
-                    <li><a href="contact.html#map-section">Où me trouver</a></li>
+                    <li><a href="contact.html#faq-section" data-translate-key="submenu_contact_faq">Avant de me contacter</a></li>
+                    <li><a href="contact.html#contact-section" data-translate-key="submenu_contact_form">Contactez-moi</a></li>
+                    <li><a href="contact.html#map-section" data-translate-key="submenu_contact_map">Où me trouver</a></li>
                 </ul>
             </li>
         </nav>
@@ -53,22 +57,22 @@
     <main>
         <!-- SECTION ABOUT -->
         <section id="about-section" class="about-section">
-            <h1>About Me</h1>
+            <h1 data-translate-key="about_h1">À propos de moi</h1>
             <div class="about-content">
             <div class="about-text">
-                <p>
+                <p data-translate-key="about_p1">
                 Bonjour ! Je m’appelle <strong>Sulivan</strong> et je suis actuellement étudiant en 
                 <strong>BUT Informatique</strong>. Passionné par le développement web, le software et le hardware, 
                 j’aime explorer de nouvelles technologies et me challenger sur des programmes variés.
                 </p>
-                <p>
+                <p data-translate-key="about_p2">
                 Au cours de ma formation, j’ai travaillé sur plusieurs projets qui m’ont permis 
                 de renforcer mes compétences en <strong>HTML</strong>, <strong>CSS</strong>, 
                 <strong>SQL</strong>, <strong>Markdown</strong> et <strong>Java</strong>.  
                 J’accorde une attention particulière à la qualité du code, à sa lisibilité 
                 et à l’expérience utilisateur.
                 </p>
-                <p>
+                <p data-translate-key="about_p3">
                 En dehors du code, je m’intéresse à la <strong>photographie</strong> et au <strong>design</strong>. 
                 J’aime apprendre en continu, relever de nouveaux défis et utiliser mes compétences pour créer des projets utiles.
                 </p>
@@ -82,7 +86,7 @@
 
         <!-- SECTION COMPÉTENCES -->
         <section id="skills-section" class="skills-section">
-            <h2>Compétences Techniques</h2>
+            <h2 data-translate-key="skills_h2">Compétences Techniques</h2>
             <div class="skills-grid">
             <div class="skill-card">HTML</div>
             <div class="skill-card">CSS</div>
@@ -99,40 +103,40 @@
 
         <!-- SECTION SOFT SKILLS -->
         <section class="skills-section">
-            <h2>Soft Skills</h2>
+            <h2 data-translate-key="soft_skills_h2">Soft Skills</h2>
             <div class="skills-grid">
-            <div class="skill-card">Com client</div>
-            <div class="skill-card">Patient</div>
-            <div class="skill-card">À l'écoute</div>
-            <div class="skill-card">Travail d'équipe</div>
-            <div class="skill-card">Autonome</div>
-            <div class="skill-card">Curieux</div>
+            <div class="skill-card" data-translate-key="soft_skill_1">Com client</div>
+            <div class="skill-card" data-translate-key="soft_skill_2">Patient</div>
+            <div class="skill-card" data-translate-key="soft_skill_3">À l'écoute</div>
+            <div class="skill-card" data-translate-key="soft_skill_4">Travail d'équipe</div>
+            <div class="skill-card" data-translate-key="soft_skill_5">Autonome</div>
+            <div class="skill-card" data-translate-key="soft_skill_6">Curieux</div>
             </div>
         </section>
 
         <!-- SECTION PARCOURS -->
         <section id="timeline-section" class="timeline-section">
-            <h2>Parcours</h2>
+            <h2 data-translate-key="timeline_h2">Parcours</h2>
             <div class="timeline">
             <div class="timeline-item">
-                <span class="year">2023 - Présent</span>
-                <p>BUT Informatique – IUT de Lille</p>
+                <span class="year" data-translate-key="timeline_item1_year">2023 - Présent</span>
+                <p data-translate-key="timeline_item1_p">BUT Informatique – IUT de Lille</p>
             </div>
             <div class="timeline-item">
-                <span class="year">2023</span>
-                <p>Baccalauréat Technologique – Spécialités SIN et Mathématiques</p>
+                <span class="year" data-translate-key="timeline_item2_year">2023</span>
+                <p data-translate-key="timeline_item2_p">Baccalauréat Technologique – Spécialités SIN et Mathématiques</p>
             </div>
             </div>
         </section>
 
         <!-- SECTION INTÉRÊTS -->
         <section class="interests-section">
-            <h2>Centres d’intérêt</h2>
+            <h2 data-translate-key="interests_h2">Centres d’intérêt</h2>
             <ul class="interests-list">
-            <li>🎮 Jeux vidéo et hardware PC</li>
-            <li>📸 Photographie</li>
-            <li>🎨 Design et créativité visuelle</li>
-            <li>💡 Résolution de problèmes et apprentissage continu</li>
+            <li data-translate-key="interest_1">🎮 Jeux vidéo et hardware PC</li>
+            <li data-translate-key="interest_2">📸 Photographie</li>
+            <li data-translate-key="interest_3">🎨 Design et créativité visuelle</li>
+            <li data-translate-key="interest_4">💡 Résolution de problèmes et apprentissage continu</li>
             </ul>
         </section>
     </main>
@@ -140,7 +144,8 @@
 
     <footer >
         <!--Pied de page pour un porfolio etudiant-->
-        <p>&copy; 2025 Student Portfolio. All rights reserved.</p>
+        <p data-translate-key="footer_p">&copy; 2025 Student Portfolio. All rights reserved.</p>
     </footer>
+    <script src="../script/translate.js" defer></script>
 </body>
 </html>

@@ -28,12 +28,16 @@ async function fetchRepos(user) {
     const repos = await res.json();
 
     if (!repos.length) {
-      reposContainer.textContent = "Aucun projet trouvé.";
+      reposContainer.setAttribute('data-translate-key', 'repos_git_no_projects');
+      reposContainer.textContent = "Aucun projet trouvé."; // Default text
       return;
     }
 
     // Trier par date de mise à jour décroissante
     repos.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
+
+    // Vider le conteneur avant d'ajouter de nouveaux éléments
+    reposContainer.innerHTML = '';
 
     // Créer une carte pour chaque repo
     repos.forEach(repo => {
@@ -50,7 +54,22 @@ async function fetchRepos(user) {
 
       // Description
       const desc = document.createElement("p");
-      desc.textContent = repo.description || "Pas de description";
+      desc.className = "description";
+      desc.textContent = repo.description || '';
+      if (!repo.description) {
+        desc.setAttribute('data-translate-key', 'repos_git_no_desc');
+        desc.textContent = "Pas de description"; // Default text
+      }
+
+      // Date de dernière modification
+      const updateDate = document.createElement("p");
+      const date = new Date(repo.updated_at);
+      const dateText = date.toLocaleDateString();
+      const updatePrefix = document.createElement('span');
+      updatePrefix.setAttribute('data-translate-key', 'repos_git_last_update');
+      updatePrefix.textContent = "Dernière modification: "; // Default text
+      updateDate.appendChild(updatePrefix);
+      updateDate.append(dateText);
 
       // Langage principal
       const langDiv = document.createElement("div");
@@ -62,7 +81,8 @@ async function fetchRepos(user) {
         span.className = "lang-badge";
         langDiv.appendChild(span);
       } else {
-        langDiv.textContent = "Langage inconnu";
+        langDiv.setAttribute('data-translate-key', 'repos_git_unknown_lang');
+        langDiv.textContent = "Langage inconnu"; // Default text
       }
 
       // Auteur
@@ -74,13 +94,14 @@ async function fetchRepos(user) {
       authorDiv.appendChild(authorLink);
 
       // Assemblage final
-      repoDiv.append(title, langDiv, desc, authorDiv);
+      repoDiv.append(title, langDiv, desc, document.createElement("br"), updateDate, authorDiv);
       reposContainer.appendChild(repoDiv);
     });
 
   } catch(err) {
     console.error(err);
-    reposContainer.textContent = "Impossible de récupérer les projets.";
+    reposContainer.setAttribute('data-translate-key', 'repos_git_fail');
+    reposContainer.textContent = "Impossible de récupérer les projets."; // Default text
   }
 }
 

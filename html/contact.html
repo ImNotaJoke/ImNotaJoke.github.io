@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -9,7 +8,7 @@
   <link href="../css/menu.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="../img/html.png">
 
-  <title>Contact</title>
+  <title data-translate-key="title_contact">Contact</title>
 </head>
 <body>
   <header>
@@ -19,29 +18,33 @@
       <div class="line3"></div>
     </div>
 
+    <div class="lang-switcher">
+        <span class="lang-fr active">FR</span>
+        <span class="lang-en">EN</span>
+    </div>
+
     <nav>
-      <li><a href="../index.html">Home</a>
+      <li><a href="../index.html" data-translate-key="nav_home">Accueil</a>
           <ul class="submenu">
-              <li><a href="../index.html#hero">Hero</a></li>
-              <li><a href="../index.html#deployments">Sites Déployés</a></li>
-              <li><a href="../index.html#about-preview">À propos de moi</a></li>
-              <li><a href="../index.html#repos-section">Dernière mise à jour</a></li>
+              <li><a href="../index.html#hero" data-translate-key="submenu_hero">Haut de page</a></li>
+              <li><a href="../index.html#deployments" data-translate-key="submenu_deployments">Sites Déployés</a></li>
+              <li><a href="../index.html#about-preview" data-translate-key="submenu_about_preview">À propos de moi</a></li>
+              <li><a href="../index.html#repos-section" data-translate-key="submenu_repos_section">Dernière mise à jour</a></li>
           </ul>
       </li>
-      <li><a href="aboutMe.html">About me</a>
+      <li><a href="aboutMe.html" data-translate-key="nav_about">À propos</a>
           <ul class="submenu">
-              <li><a href="aboutMe.html#about-section">Présentation</a></li>
-              <li><a href="aboutMe.html#skills-section">Compétences</a></li>
+              <li><a href="aboutMe.html#about-section" data-translate-key="submenu_about_presentation">Présentation</a></li>
+              <li><a href="aboutMe.html#skills-section" data-translate-key="submenu_about_skills">Compétences</a></li>
               <li><a href="aboutMe.html#timeline-section">Parcours</a></li>
           </ul>
       </li>
-      <li><a href="projet.html">Project</a></li>
-      <li><a href="contact.html" class="active">Contact</a>
+      <li><a href="projet.html" data-translate-key="nav_projects">Projets</a></li>
+      <li><a href="contact.html" class="active" data-translate-key="nav_contact">Contact</a>
           <ul class="submenu">
-              <li><a href="#faq-section">Avant de me contacter</a></li>
-              <li><a href="#contact-section">Contactez-moi</a></li>
-              <li><a href="#availability-section">Disponibilité</a></li>
-              <li><a href="#map-section">Où me trouver</a></li>
+              <li><a href="#faq-section" data-translate-key="submenu_contact_faq">Avant de me contacter</a></li>
+              <li><a href="#contact-section" data-translate-key="submenu_contact_form">Contactez-moi</a></li>
+              <li><a href="#map-section" data-translate-key="submenu_contact_map">Où me trouver</a></li>
           </ul>
       </li>
     </nav>
@@ -58,57 +61,45 @@
     </div>
 
     <section id="faq-section" class="faq-section">
-      <h1>Avant de me contacter</h1>
+      <h1 data-translate-key="faq_h1">Avant de me contacter</h1>
       <ul>
-        <li>📅 Disponible à partir d’<strong>avril 2026</strong> pour une offre de stage.</li>
-        <li>💻 Intéressé par le <strong>développement web</strong>, <strong>Java</strong>, <strong>l'administration réseaux</strong> et les <strong>bases de données SQL</strong>.</li>
-        <li>⚙️ J’accorde de l’importance à la lisibilité, la propreté du code et l’expérience utilisateur.</li>
-        <li>📨 Vous pouvez me contacter via le formulaire ou directement sur <strong>LinkedIn</strong> / <strong>gmail</strong>.</li>
+        <li data-translate-key="faq_li1">📅 Disponible à partir d’<strong>avril 2026</strong> pour une offre de stage de <strong>8 - 10 semaines</strong>.</li>
+        <li data-translate-key="faq_li2">📍 Basé dans le secteur <strong>Tourcoing / Lille</strong>, ouvert au <strong>télétravail</strong>.</li>
+        <li data-translate-key="faq_li3">💻 Intéressé par le <strong>développement web</strong>, <strong>Java</strong>, <strong>l'administration réseaux</strong> et les <strong>bases de données SQL</strong>.</li>
+        <li data-translate-key="faq_li4">⚙️ J’accorde de l’importance à la lisibilité, la propreté du code et l’expérience utilisateur.</li>
+        <li data-translate-key="faq_li5">📨 Vous pouvez me contacter via le formulaire ou directement sur <strong>LinkedIn</strong> / <strong>gmail</strong>.</li>
       </ul>
     </section>
 
     <section id="contact-section" class="contact-section">
-      <h1>Contactez-moi</h1>
+      <h1 data-translate-key="contact_h1">Contactez-moi</h1>
       <!-- CONTENU CONTACT -->
       <div class="contact-content">
         <!-- CV en premier sur mobile -->
         <div class="pdf-viewer">
-          <h2>Mon CV</h2>
+          <h2 data-translate-key="cv_h2">Mon CV</h2>
           <iframe src="../res/RechercheDeStageInformatique.pdf" width="100%" height="400px"></iframe>
-          <a href="../res/RechercheDeStageInformatique.pdf" download class="download-btn">Télécharger le CV</a>
+          <a href="../res/RechercheDeStageInformatique.pdf" download class="download-btn" data-translate-key="cv_download">Télécharger le CV</a>
         </div>
 
         <!-- FORMULAIRE DE CONTACT -->
         <form class="contact-form" action="https://formspree.io/f/mrbonqdp" method="POST">
-          <label for="name">Nom</label>
-          <input type="text" id="name" name="name" placeholder="Votre nom" required>
+          <label for="name" data-translate-key="form_name_label">Nom</label>
+          <input type="text" id="name" name="name" placeholder="Votre nom" data-translate-key="form_name_placeholder" required>
 
-          <label for="email">Email</label>
-          <input type="email" id="email" name="_replyto" placeholder="votre mail pour vous recontactez" required>
+          <label for="email" data-translate-key="form_email_label">Email</label>
+          <input type="email" id="email" name="_replyto" placeholder="votre mail pour vous recontactez" data-translate-key="form_email_placeholder" required>
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+          <label for="message" data-translate-key="form_message_label">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Votre message" data-translate-key="form_message_placeholder" required></textarea>
 
-          <button type="submit">Envoyer</button>
+          <button type="submit" data-translate-key="form_submit_btn">Envoyer</button>
         </form>
       </div>
     </section>
 
-    <section id="availability-section" class="availability-section">
-      <h1>Disponibilité</h1>
-      <p>
-        Actuellement étudiant en <strong>BUT Informatique</strong>, je suis à la recherche d’un 
-        <strong>stage en développement web ou logiciel</strong> à partir du <strong> 7 avril 2026</strong>, 
-        pour une durée de <strong>10 semaines</strong>. 
-      </p>
-      <p>
-        Basé dans le secteur <strong>Tourcoing / Lille</strong>, je suis ouvert au <strong>télétravail</strong> 
-        ainsi qu’aux déplacements dans les environs.
-      </p>
-    </section>
-
     <section id="map-section" class="map-section">
-      <h1>Où me trouver</h1>
+      <h1 data-translate-key="map_h1">Où me trouver</h1>
       <iframe 
         src="https://www.google.com/maps?q=Tourcoing,+Lille,+France&output=embed"
         width="100%"
@@ -124,10 +115,11 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Student Portfolio. All rights reserved.</p>
+    <p data-translate-key="footer_p">&copy; 2025 Student Portfolio. All rights reserved.</p>
   </footer>
 
   <script src="../script/Header.js" defer></script>
   <script src="../script/Footer.js" defer></script>
+  <script src="../script/translate.js" defer></script>
 </body>
 </html>

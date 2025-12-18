@@ -8,7 +8,7 @@
     <link href="../css/projet.css" rel="stylesheet">
     <link href="../css/menu.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="../img/html.png">
-    <title>Projet</title>
+    <title data-translate-key="title_projects">Projets</title>
 </head>
 <body>
     <header>
@@ -19,29 +19,33 @@
             <div class="line3"></div>
         </div>
 
+        <div class="lang-switcher">
+            <span class="lang-fr active">FR</span>
+            <span class="lang-en">EN</span>
+        </div>
+
         <nav>
-            <li><a href="../index.html">Home</a>
+            <li><a href="../index.html" data-translate-key="nav_home">Accueil</a>
                 <ul class="submenu">
-                    <li><a href="../index.html#hero">Hero</a></li>
-                    <li><a href="../index.html#deployments">Sites Déployés</a></li>
-                    <li><a href="../index.html#about-preview">À propos de moi</a></li>
-                    <li><a href="../index.html#repos-section">Dernière mise à jour</a></li>
+                    <li><a href="../index.html#hero" data-translate-key="submenu_hero">Haut de page</a></li>
+                    <li><a href="../index.html#deployments" data-translate-key="submenu_deployments">Sites Déployés</a></li>
+                    <li><a href="../index.html#about-preview" data-translate-key="submenu_about_preview">À propos de moi</a></li>
+                    <li><a href="../index.html#repos-section" data-translate-key="submenu_repos_section">Dernière mise à jour</a></li>
                 </ul>
             </li>
-            <li><a href="aboutMe.html">About me</a>
+            <li><a href="aboutMe.html" data-translate-key="nav_about">À propos</a>
                 <ul class="submenu">
-                    <li><a href="aboutMe.html#about-section">Présentation</a></li>
-                    <li><a href="aboutMe.html#skills-section">Compétences</a></li>
+                    <li><a href="aboutMe.html#about-section" data-translate-key="submenu_about_presentation">Présentation</a></li>
+                    <li><a href="aboutMe.html#skills-section" data-translate-key="submenu_about_skills">Compétences</a></li>
                     <li><a href="aboutMe.html#timeline-section">Parcours</a></li>
                 </ul>
             </li>
-            <li><a href="projet.html" class="active">Project</a></li>
-            <li><a href="contact.html">Contact</a>
+            <li><a href="projet.html" class="active" data-translate-key="nav_projects">Projets</a></li>
+            <li><a href="contact.html" data-translate-key="nav_contact">Contact</a>
                 <ul class="submenu">
-                    <li><a href="contact.html#faq-section">Avant de me contacter</a></li>
-                    <li><a href="contact.html#contact-section">Contactez-moi</a></li>
-                    <li><a href="contact.html#availability-section">Disponibilité</a></li>
-                    <li><a href="contact.html#map-section">Où me trouver</a></li>
+                    <li><a href="contact.html#faq-section" data-translate-key="submenu_contact_faq">Avant de me contacter</a></li>
+                    <li><a href="contact.html#contact-section" data-translate-key="submenu_contact_form">Contactez-moi</a></li>
+                    <li><a href="contact.html#map-section" data-translate-key="submenu_contact_map">Où me trouver</a></li>
                 </ul>
             </li>
         </nav>
@@ -49,17 +53,18 @@
     </header>
 
     <main>
-        <h1>Projets GitHub/Gitlab universitaire et personnel</h1>
+        <h1 data-translate-key="projects_h1">Projets GitHub/Gitlab universitaire et personnel</h1>
         <div id="repos"></div>
     </main>
 
     <footer >
         <!--Pied de page pour un porfolio etudiant-->
-        <p>&copy; 2025 Student Portfolio. All rights reserved.</p>
+        <p data-translate-key="footer_p">&copy; 2025 Student Portfolio. All rights reserved.</p>
     </footer>
 
     <script src="../script/Header.js" defer></script>
     <script src="../script/Footer.js" defer></script>
     <script src="../script/ReposGit.js" defer></script>
+    <script src="../script/translate.js" defer></script>
 </body>
 </html>
