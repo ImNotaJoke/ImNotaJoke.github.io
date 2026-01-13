@@ -6,10 +6,11 @@
     <link href="css/footer.css" rel="stylesheet">
     <link href="css/header.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
+    <link href="css/menu.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/html.png">
 
     
-    <title>Home</title>
+    <title data-translate-key="title_home">Accueil</title>
 </head>
 <body>
     <header>
@@ -20,32 +21,78 @@
             <div class="line3"></div>
         </div>
 
+        <div class="lang-switcher">
+            <span class="lang-fr active">FR</span>
+            <span class="lang-en">EN</span>
+        </div>
+
         <nav>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="html/projet.html">Projet</a></li>
-            <li><a href="html/aboutMe.html">About me</a></li>
-            <li><a href="html/contact.html">Contact</a></li>
+            <li><a href="index.html" data-translate-key="nav_home">Accueil</a>
+                <ul class="submenu">
+                    <li><a href="#hero" data-translate-key="submenu_hero">Haut de page</a></li>
+                    <li><a href="#deployments" data-translate-key="submenu_deployments">Sites Déployés</a></li>
+                    <li><a href="#about-preview" data-translate-key="submenu_about_preview">À propos de moi</a></li>
+                    <li><a href="#repos-section" data-translate-key="submenu_repos_section">Dernière mise à jour</a></li>
+                </ul>
+            </li>
+            <li><a href="html/aboutMe.html" data-translate-key="nav_about">À propos</a>
+                <ul class="submenu">
+                    <li><a href="html/aboutMe.html#about-me-hero" data-translate-key="submenu_about_presentation">Présentation</a></li>
+                    <li><a href="html/aboutMe.html#skills" data-translate-key="submenu_about_skills">Compétences</a></li>
+                    <li><a href="html/aboutMe.html#cv" data-translate-key="submenu_about_cv">CV</a></li>
+                </ul>
+            </li>
+            <li><a href="html/projet.html" data-translate-key="nav_projects">Projets</a></li>
+            <li><a href="html/contact.html" data-translate-key="nav_contact">Contact</a>
+                <ul class="submenu">
+                    <li><a href="html/contact.html#faq-section" data-translate-key="submenu_contact_faq">Avant de me contacter</a></li>
+                    <li><a href="html/contact.html#contact-section" data-translate-key="submenu_contact_form">Contactez-moi</a></li>
+                    <li><a href="html/contact.html#map-section" data-translate-key="submenu_contact_map">Où me trouver</a></li>
+                </ul>
+            </li>
         </nav>
 
     </header>
 
     <!-- Hero Section -->
     <section id="hero">
-        <h1>Bienvenue sur mon portfolio</h1>
-        <p>Je suis un étudiant en informatique passionné par le développement web et la programmation. Sur ce site, vous trouverez mes projets récents ainsi qu'un aperçu de mes compétences et réalisations. N'hésitez pas à explorer et à me contacter !</p>
+        <h1 data-translate-key="hero_h1">Bienvenue sur mon portfolio</h1>
+        <p data-translate-key="hero_p">Je suis un étudiant en informatique passionné par le développement web et la programmation. Sur ce site, vous trouverez mes projets récents ainsi qu'un aperçu de mes compétences et réalisations. N'hésitez pas à explorer et à me contacter !</p>
     </section>
 
     <!-- À propos Section -->
+    <section id="deployments">
+        <h2 data-translate-key="deploy_h2">Sites Déployés</h2>
+        <div class="deploy-grid">
+            
+            <a href="https://x86ethan.github.io/SAE-RdB-Website/" class="deploy-card" target="_blank">
+            <span></span> <div class="content">
+                <h3 data-translate-key="deploy_card1_h3">Sae RdB Website</h3>
+                <p data-translate-key="deploy_card1_p"> Le but de ce projet est de créer un site static html/css de covoiturage pour une entreprise choisi. </p>
+            </div>
+            </a>
+
+            <a href="https://ndi-2025-bonne-bouffe.github.io/ndi2025/" class="deploy-card" target="_blank">
+            <span></span>
+            <div class="content">
+                <h3 data-translate-key="deploy_card2_h3">Nuit de L'informatique - Hide the snake !</h3>
+                <p data-translate-key="deploy_card2_p">Le but de la nuit de l'info était de créer un site web parlant de l'open source et de l'écologe tout en respectant un défi donné, essayer de trouver notre snake !</p>
+            </div>
+            </a>
+
+        </div>
+    </section>
+
     <section id="about-preview">
-        <h2>À propos de moi</h2>
-        <p>Je suis actuellement étudiant en informatique, spécialisé dans le développement web et la programmation orientée objet. J'aime créer des applications web interactives et des projets innovants. Mon objectif est de toujours apprendre de nouvelles technologies et de perfectionner mes compétences pour réaliser des projets professionnels et personnels de qualité.</p>
+        <h2 data-translate-key="about_preview_h2">À propos de moi</h2>
+        <p data-translate-key="about_preview_p">J'aime créer des applications web interactives et des projets innovants. Mon objectif est de toujours apprendre de nouvelles technologies et de perfectionner mes compétences pour réaliser des projets professionnels et personnels de qualité.</p>
         <div style="text-align:center;">
-        <a href="html/aboutMe.html" class="btn">En savoir plus</a>
+        <a href="html/aboutMe.html" class="btn" data-translate-key="about_preview_btn">En savoir plus</a>
         </div>
     </section>
 
     <main>
-        <h1>Actualité</h1>
+        <h1 data-translate-key="repos_h1">dernière mise à jour</h1>
 
         <section id="repos-section">
             <div id="repos" class="repos-container"></div>
@@ -55,13 +102,14 @@
 
     <footer >
         <!--Pied de page pour un porfolio etudiant-->
-        <p>&copy; 2025 Student Portfolio. All rights reserved.</p>
+        <p data-translate-key="footer_p">&copy; 2025 Student Portfolio. All rights reserved.</p>
     </footer>
 </body>
 
 <script src="script/Header.js" defer></script>
 <script src="script/Footer.js" defer></script>
 <script src="script/caroussel.js" defer></script>
+<script src="script/translate.js" defer></script>
 </html>
 
 

@@ -36,11 +36,22 @@ h1::after {
   z-index: -1;
 }
 
-/* ===================== Hero ===================== */
+/* ===================== Shared Logic (Hero, À propos, Deployments) ===================== */
+
+/* AJOUT : #deployments est ajouté ici pour avoir exactement les mêmes dimensions */
+#hero, 
+#about-preview,
+#deployments {
+  margin: 50px auto;    /* Même marge verticale et centrage */
+  max-width: 900px;     /* Même largeur maximale pour tout le monde */
+  border-radius: 12px;  /* Bords arrondis */
+  padding: 40px;        /* Padding harmonisé */
+  box-sizing: border-box; /* S'assure que le padding ne casse pas la largeur */
+}
+
+/* ===================== Spécifique Hero ===================== */
 #hero {
   text-align: center;
-  padding-top: 150px;
-  padding-bottom: 40px;
   background: linear-gradient(135deg, #091369, #050d52);
   color: #fff;
 }
@@ -58,13 +69,9 @@ h1::after {
   line-height: 1.6;
 }
 
-/* ===================== À propos ===================== */
+/* ===================== Spécifique À propos ===================== */
 #about-preview {
-  margin: 50px auto;
-  padding: 20px;
   background-color: #161b22;
-  border-radius: 12px;
-  max-width: 900px;
   text-align: justify;
 }
 
@@ -93,6 +100,103 @@ h1::after {
   background-color: #1b2bbb;
 }
 
+/* ===================== Spécifique Deployments ===================== */
+#deployments {
+    /* Les marges et paddings sont gérés plus haut dans "Shared Logic" */
+    /* Pas de background-color ici, car le fond est transparent et ce sont les cartes qui sont colorées */
+}
+
+#deployments h2 {
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: left; /* Ou center, selon ta préférence */
+}
+
+.deploy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.deploy-card {
+  position: relative;
+  display: block;
+  background: #161b22; 
+  border-radius: 12px;
+  text-decoration: none;
+  overflow: hidden; 
+  transition: transform 0.3s ease;
+}
+
+.deploy-card:hover {
+  transform: translateY(-5px);
+}
+
+.deploy-card span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+.deploy-card span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1000px;
+  height: 1000px;
+  background: conic-gradient(
+    transparent, 
+    transparent, 
+    transparent, 
+    #58a6ff
+  );
+  transform: translate(-50%, -50%);
+  animation: animate-border 4s linear infinite;
+}
+
+.deploy-card::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #161b22; 
+  border-radius: 10px; 
+  z-index: 1;
+}
+
+.deploy-card .content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  color: #c9d1d9;
+}
+
+.deploy-card h3 {
+  margin: 0 0 10px 0;
+  color: #58a6ff;
+  font-size: 1.2rem;
+}
+
+.deploy-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #8b949e;
+}
+
+@keyframes animate-border {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 
 /* ===================== Responsive ===================== */
 @media (max-width: 768px) {
@@ -104,14 +208,16 @@ h1::after {
     font-size: 1rem;
   }
 
-  #about-preview {
-    padding: 15px;
+  /* AJOUT : On applique l'ajustement mobile aux TROIS sections */
+  #hero, 
+  #about-preview,
+  #deployments {
+    padding: 20px 15px;
     margin: 30px 10px;
   }
 }
 
 /* ===================== Repos GitHub ===================== */
-/* J’ai gardé intacte toute ta section repos pour ton script */
 .repos-container {
   display: flex;
   gap: 20px;
