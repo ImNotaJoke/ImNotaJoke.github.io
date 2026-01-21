@@ -1,9 +1,13 @@
 const burger = document.getElementById('burger');
 const nav = document.querySelector('nav');
 
+// Gestion de l'état accessibilité initial
+burger.setAttribute('aria-expanded', 'false');
+
 burger.addEventListener('click', () => {
-  nav.classList.toggle('active');
+  const isActive = nav.classList.toggle('active');
   burger.classList.toggle('toggle');
+  burger.setAttribute('aria-expanded', isActive);
 });
 
 // Fermer menu si clic en dehors
@@ -13,6 +17,7 @@ document.addEventListener("click", (e) => {
     if(!nav.contains(e.target) && !burger.contains(e.target)) {
       nav.classList.remove("active");
       burger.classList.remove("toggle");
+      burger.setAttribute('aria-expanded', 'false');
     }
   }
 });

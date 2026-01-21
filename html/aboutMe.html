@@ -7,15 +7,18 @@
     <link href="../css/header.css" rel="stylesheet">
     <link href="../css/aboutMe.css" rel="stylesheet">
     <link href="../css/menu.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <script src="../script/Header.js" defer></script>
     <script src="../script/Footer.js" defer></script>
+    <script src="../script/translate.js" defer></script>
+
     <link rel="icon" type="image/png" href="../img/html.png">
     <title data-translate-key="title_about">À propos de moi</title>
 </head>
 <body>
     <header>
 
-        <div class="burger" id="burger">
+        <div class="burger" id="burger" aria-label="Menu de navigation" role="button" tabindex="0">
             <div class="line1"></div>
             <div class="line2"></div>
             <div class="line3"></div>
@@ -50,6 +53,7 @@
                     <li><a href="contact.html#map-section" data-translate-key="submenu_contact_map">Où me trouver</a></li>
                 </ul>
             </li>
+            <li class="cv-btn-container"><a href="../res/RechercheDeStageInformatique.pdf" class="btn-cv" download data-translate-key="nav_cv_download">Télécharger mon CV</a></li>
         </nav>
 
     </header>
@@ -88,16 +92,46 @@
         <section id="skills-section" class="skills-section">
             <h2 data-translate-key="skills_h2">Compétences Techniques</h2>
             <div class="skills-grid">
-            <div class="skill-card">HTML</div>
-            <div class="skill-card">CSS</div>
-            <div class="skill-card">Java</div>
-            <div class="skill-card">SQL</div>
-            <div class="skill-card">Bash</div>
-            <div class="skill-card">C</div>
-            <div class="skill-card">Git / GitHub</div>
-            <div class="skill-card">Python</div>
-            <div class="skill-card">JavaScript</div>
-            <div class="skill-card">Linux</div>
+                <div class="skill-card">
+                    <i class="devicon-html5-plain colored"></i>
+                    <span>HTML</span>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-css3-plain colored"></i>
+                    <span>CSS</span>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-java-plain colored"></i>
+                    <span>Java</span>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-mysql-plain colored"></i>
+                    <span>SQL</span>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-bash-plain colored"></i>
+                    <span>Bash</span>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-c-plain colored"></i>
+                    <span>C</span>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-git-plain colored"></i>
+                    <span>Git</span>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-github-original colored"></i>
+                    <span>GitHub</span>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-javascript-plain colored"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-linux-plain colored"></i>
+                    <span>Linux</span>
+                </div>
             </div>
         </section>
 
@@ -146,6 +180,5 @@
         <!--Pied de page pour un porfolio etudiant-->
         <p data-translate-key="footer_p">&copy; 2025 Student Portfolio. All rights reserved.</p>
     </footer>
-    <script src="../script/translate.js" defer></script>
 </body>
 </html>

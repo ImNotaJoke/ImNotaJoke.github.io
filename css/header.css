@@ -184,3 +184,49 @@ main {
 .lang-switcher span:not(.active):hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+/* CV Button Styles */
+.cv-btn-container {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.btn-cv {
+    display: inline-block;
+    padding: 8px 16px; 
+    background-color: #58a6ff;
+    color: #fff !important;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s;
+    border: 1px solid #58a6ff;
+    height: auto !important;
+    line-height: normal;
+    border-bottom: none !important; /* Override mobile style */
+    position: relative;
+    z-index: 10;
+}
+
+.btn-cv:hover {
+    background-color: #1f6feb;
+    border-color: #1f6feb;
+    transform: scale(1.05);
+    color: #ffffff !important;
+}
+
+@media (max-width: 728px) {
+    .cv-btn-container {
+        margin: 0;
+        padding: 20px 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .btn-cv {
+         width: 80%;
+         text-align: center;
+         padding: 15px !important;
+    }
+}

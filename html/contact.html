@@ -6,13 +6,19 @@
   <link href="../css/header.css" rel="stylesheet">
   <link href="../css/contact.css" rel="stylesheet">
   <link href="../css/menu.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="icon" type="image/png" href="../img/html.png">
 
   <title data-translate-key="title_contact">Contact</title>
+
+  <script src="../script/Header.js" defer></script>
+  <script src="../script/Footer.js" defer></script>
+  <script src="../script/translate.js" defer></script>
+
 </head>
 <body>
   <header>
-    <div class="burger" id="burger">
+    <div class="burger" id="burger" aria-label="Menu de navigation" role="button" tabindex="0">
       <div class="line1"></div>
       <div class="line2"></div>
       <div class="line3"></div>
@@ -47,6 +53,7 @@
               <li><a href="#map-section" data-translate-key="submenu_contact_map">Où me trouver</a></li>
           </ul>
       </li>
+      <li class="cv-btn-container"><a href="../res/RechercheDeStageInformatique.pdf" class="btn-cv" download data-translate-key="nav_cv_download">Télécharger mon CV</a></li>
     </nav>
   </header>
 
@@ -118,8 +125,6 @@
     <p data-translate-key="footer_p">&copy; 2025 Student Portfolio. All rights reserved.</p>
   </footer>
 
-  <script src="../script/Header.js" defer></script>
-  <script src="../script/Footer.js" defer></script>
-  <script src="../script/translate.js" defer></script>
+  
 </body>
 </html>

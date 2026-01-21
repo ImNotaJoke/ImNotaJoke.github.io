@@ -7,6 +7,7 @@
     <link href="css/header.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="icon" type="image/png" href="img/html.png">
 
     
@@ -15,7 +16,7 @@
 <body>
     <header>
 
-        <div class="burger" id="burger">
+        <div class="burger" id="burger" aria-label="Menu de navigation" role="button" tabindex="0">
             <div class="line1"></div>
             <div class="line2"></div>
             <div class="line3"></div>
@@ -50,10 +51,12 @@
                     <li><a href="html/contact.html#map-section" data-translate-key="submenu_contact_map">Où me trouver</a></li>
                 </ul>
             </li>
+            <li class="cv-btn-container"><a href="res/RechercheDeStageInformatique.pdf" class="btn-cv" download data-translate-key="nav_cv_download">Télécharger mon CV</a></li>
         </nav>
 
     </header>
 
+    <main>
     <!-- Hero Section -->
     <section id="hero">
         <h1 data-translate-key="hero_h1">Bienvenue sur mon portfolio</h1>
@@ -91,7 +94,7 @@
         </div>
     </section>
 
-    <main>
+    
         <h1 data-translate-key="repos_h1">dernière mise à jour</h1>
 
         <section id="repos-section">
