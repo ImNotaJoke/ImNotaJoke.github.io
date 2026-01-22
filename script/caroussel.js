@@ -17,12 +17,22 @@ const langColors = {
   "PHP": "#4F5D95"
 };
 
+// Fonction pour déterminer la couleur du texte (noir ou blanc) selon la luminosité du fond
+function getContrastColor(hexColor) {
+  if (!hexColor) return 'white';
+  const r = parseInt(hexColor.substr(1, 2), 16);
+  const g = parseInt(hexColor.substr(3, 2), 16);
+  const b = parseInt(hexColor.substr(5, 2), 16);
+  const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+  return (yiq >= 128) ? 'black' : 'white';
+}
+
 let currentIndex = 0;
 let autoInterval;
 let inactivityTimeout;
 
 // ==== Création des cartes ====
-function createRepoCard(repo){
+async function createRepoCard(repo){
   const repoDiv = document.createElement("div");
   repoDiv.className = "repo";
 
@@ -34,17 +44,51 @@ function createRepoCard(repo){
   title.appendChild(link);
 
   const desc = document.createElement("p");
+  desc.className = "description";
   desc.textContent = repo.description || "Pas de description";
 
   const langDiv = document.createElement("div");
-  if(repo.language){
-    const span = document.createElement("span");
-    span.textContent = repo.language;
-    span.style.backgroundColor = langColors[repo.language] || "#6e5494";
-    span.className = "lang-badge";
-    langDiv.appendChild(span);
-  } else {
-    langDiv.textContent = "Langage inconnu";
+  langDiv.className = "languages";
+
+  try {
+    const langRes = await fetch(repo.languages_url);
+    if (!langRes.ok) throw new Error('Failed to fetch languages');
+    const languages = await langRes.json();
+    const langKeys = Object.keys(languages);
+
+    if (langKeys.length > 0) {
+        langKeys.forEach(lang => {
+            const span = document.createElement("span");
+            span.textContent = lang;
+            const bgColor = langColors[lang] || "#6e5494";
+            span.style.backgroundColor = bgColor;
+            span.style.color = getContrastColor(bgColor);
+            span.className = "lang-badge";
+            langDiv.appendChild(span);
+        });
+    } else if(repo.language){
+        const span = document.createElement("span");
+        span.textContent = repo.language;
+        const bgColor = langColors[repo.language] || "#6e5494";
+        span.style.backgroundColor = bgColor;
+        span.style.color = getContrastColor(bgColor);
+        span.className = "lang-badge";
+        langDiv.appendChild(span);
+    } else {
+        langDiv.textContent = "Langage inconnu";
+    }
+  } catch (error) {
+    if(repo.language){
+        const span = document.createElement("span");
+        span.textContent = repo.language;
+        const bgColor = langColors[repo.language] || "#6e5494";
+        span.style.backgroundColor = bgColor;
+        span.style.color = getContrastColor(bgColor);
+        span.className = "lang-badge";
+        langDiv.appendChild(span);
+    } else {
+        langDiv.textContent = "Langage inconnu";
+    }
   }
 
   const authorDiv = document.createElement("div");
@@ -55,7 +99,7 @@ function createRepoCard(repo){
   authorDiv.appendChild(authorLink);
 
   repoDiv.append(title, langDiv, desc, authorDiv);
-  reposContainer.appendChild(repoDiv);
+  return repoDiv;
 }
 
 // ==== Dots ====
@@ -152,7 +196,11 @@ async function fetchRepos(user){
     }
     repos.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
     const latest = repos.slice(0,3);
-    latest.forEach(repo => createRepoCard(repo));
+    
+    // Attendre la création de toutes les cartes pour récupérer les langages
+    const cards = await Promise.all(latest.map(repo => createRepoCard(repo)));
+    cards.forEach(card => reposContainer.appendChild(card));
+
     createDots(latest.length);
     startAutoScroll();
   } catch(err){
