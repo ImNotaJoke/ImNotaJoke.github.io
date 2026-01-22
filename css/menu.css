@@ -1,38 +1,70 @@
-.submenu {
+﻿.submenu {
     display: none;
     position: absolute;
-    background-color: #333;
+    top: 100%;
+    margin-top: 15px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: #222;
     list-style: none;
-    padding: 10px 0;
-    border-radius: 5px;
-    margin-top: 0;
+    padding: 8px 0;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    min-width: 220px;
     opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 2100;
+}
+
+/* Invisible bridge for hover */
+.submenu::after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+}
+
+/* Arrow indicator */
+.submenu::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #222 transparent;
 }
 
 nav li:hover .submenu {
     display: block;
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
 
 .submenu li {
-    padding: 0 10px;
+    padding: 0;
+    width: 100%;
 }
 
 .submenu li a {
-    color: white;
+    color: #cbd5e1;
     text-decoration: none;
     display: block;
-    padding: 10px;
-    transition: background-color 0.3s ease;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
 }
 
 .submenu li a:hover {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.05);
     color: #4b9191;
+    border-left-color: #4b9191;
+    padding-left: 24px;
 }
 
 @media (max-width: 728px) {
