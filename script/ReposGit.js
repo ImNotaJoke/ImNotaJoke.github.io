@@ -35,7 +35,7 @@ async function fetchRepos(user) {
     // 1 seule requête pour tous les repos publics
     const res = await fetch(`https://api.github.com/users/${user}/repos`);
     if (!res.ok) throw new Error(`HTTP error ${res.status}`);
-    const repos = await res.json();
+    const repos = await res.json(); 
 
     if (!repos.length) {
       reposContainer.setAttribute('data-translate-key', 'repos_git_no_projects');
@@ -133,6 +133,7 @@ async function fetchRepos(user) {
       // Auteur
       const authorDiv = document.createElement("div");
       const authorLink = document.createElement("a");
+      authorLink.className = "authors";
       authorLink.href = repo.owner.html_url;
       authorLink.target = "_blank";
       authorLink.textContent = repo.owner.login;
