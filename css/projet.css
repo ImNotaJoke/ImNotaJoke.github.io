@@ -1,18 +1,22 @@
 /* ------------------ Style général ------------------ */
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0d1117; /* fond GitHub dark */
+      background-color: #0d1117;
       color: #c9d1d9;
     }
     main {
       max-width: 1000px;
       margin: auto;
-      
-      padding-top: 120px; /* espace pour header fixe */
-     padding-left: 20px; /* espace sur les côtés */
+      padding-top: 120px;
+      padding-left: 20px;
       padding-right: 20px;
-     box-sizing: border-box; /* inclut padding dans la largeur totale */
+      padding-bottom: 60px;
+      box-sizing: border-box;
     }
     h1 {
       text-align: center;
@@ -23,20 +27,18 @@
 
     /* ------------------ Carte dépôt ------------------ */
     .repo {
-      background-color: #161b22; /* légèrement plus clair que le fond */
+      background-color: #161b22;
       border-radius: 12px;
       padding: 25px;
       margin-bottom: 25px;
-      box-shadow:
-        0 6px 12px rgba(0,0,0,0.5),  /* ombre externe */
-        inset 0 2px 6px rgba(255,255,255,0.05); /* ombre interne */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(48, 54, 61, 0.6);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
     .repo:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow:
-        0 12px 24px rgba(0,0,0,0.6),
-        inset 0 2px 6px rgba(255,255,255,0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      border-color: rgba(88, 166, 255, 0.3);
     }
 
     /* Titre du dépôt */

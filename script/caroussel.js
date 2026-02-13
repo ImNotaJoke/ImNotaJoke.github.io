@@ -17,7 +17,6 @@ const langColors = {
   "PHP": "#4F5D95"
 };
 
-// Fonction pour déterminer la couleur du texte (noir ou blanc) selon la luminosité du fond
 function getContrastColor(hexColor) {
   if (!hexColor) return 'white';
   const r = parseInt(hexColor.substr(1, 2), 16);
@@ -32,7 +31,7 @@ let autoInterval;
 let inactivityTimeout;
 
 // ==== Création des cartes ====
-async function createRepoCard(repo){
+async function createRepoCard(repo) {
   const repoDiv = document.createElement("div");
   repoDiv.className = "repo";
 
@@ -57,41 +56,42 @@ async function createRepoCard(repo){
     const langKeys = Object.keys(languages);
 
     if (langKeys.length > 0) {
-        langKeys.forEach(lang => {
-            const span = document.createElement("span");
-            span.textContent = lang;
-            const bgColor = langColors[lang] || "#6e5494";
-            span.style.backgroundColor = bgColor;
-            span.style.color = getContrastColor(bgColor);
-            span.className = "lang-badge";
-            langDiv.appendChild(span);
-        });
-    } else if(repo.language){
+      langKeys.forEach(lang => {
         const span = document.createElement("span");
-        span.textContent = repo.language;
-        const bgColor = langColors[repo.language] || "#6e5494";
+        span.textContent = lang;
+        const bgColor = langColors[lang] || "#6e5494";
         span.style.backgroundColor = bgColor;
         span.style.color = getContrastColor(bgColor);
         span.className = "lang-badge";
         langDiv.appendChild(span);
+      });
+    } else if (repo.language) {
+      const span = document.createElement("span");
+      span.textContent = repo.language;
+      const bgColor = langColors[repo.language] || "#6e5494";
+      span.style.backgroundColor = bgColor;
+      span.style.color = getContrastColor(bgColor);
+      span.className = "lang-badge";
+      langDiv.appendChild(span);
     } else {
-        langDiv.textContent = "Langage inconnu";
+      langDiv.textContent = "Langage inconnu";
     }
   } catch (error) {
-    if(repo.language){
-        const span = document.createElement("span");
-        span.textContent = repo.language;
-        const bgColor = langColors[repo.language] || "#6e5494";
-        span.style.backgroundColor = bgColor;
-        span.style.color = getContrastColor(bgColor);
-        span.className = "lang-badge";
-        langDiv.appendChild(span);
+    if (repo.language) {
+      const span = document.createElement("span");
+      span.textContent = repo.language;
+      const bgColor = langColors[repo.language] || "#6e5494";
+      span.style.backgroundColor = bgColor;
+      span.style.color = getContrastColor(bgColor);
+      span.className = "lang-badge";
+      langDiv.appendChild(span);
     } else {
-        langDiv.textContent = "Langage inconnu";
+      langDiv.textContent = "Langage inconnu";
     }
   }
 
   const authorDiv = document.createElement("div");
+  authorDiv.className = "repo-author";
   const authorLink = document.createElement("a");
   authorLink.href = repo.owner.html_url;
   authorLink.target = "_blank";
@@ -103,12 +103,12 @@ async function createRepoCard(repo){
 }
 
 // ==== Dots ====
-function createDots(num){
+function createDots(num) {
   dotsContainer.innerHTML = "";
-  for(let i=0;i<num;i++){
+  for (let i = 0; i < num; i++) {
     const dot = document.createElement("div");
     dot.className = "dot";
-    if(i===0) dot.classList.add("active");
+    if (i === 0) dot.classList.add("active");
     dot.addEventListener("click", () => {
       goToSlide(i);
       pauseAutoScroll();
@@ -117,111 +117,170 @@ function createDots(num){
   }
 }
 
-function updateDots(){
+function updateDots() {
   const dots = Array.from(dotsContainer.children);
   dots.forEach(dot => dot.classList.remove("active"));
-  if(dots[currentIndex]) dots[currentIndex].classList.add("active");
+  if (dots[currentIndex]) dots[currentIndex].classList.add("active");
 }
 
 // ==== Navigation card par card ====
-function goToSlide(index){
-  const card = reposContainer.children[index];
-  if(card){
-    reposContainer.scrollLeft = card.offsetLeft;
+function goToSlide(index) {
+  const cards = reposContainer.children;
+  if (!cards.length) return;
+  // Clamp index
+  index = Math.max(0, Math.min(index, cards.length - 1));
+  const card = cards[index];
+  if (card) {
+    // Smooth scroll to the card
+    const scrollTarget = card.offsetLeft - reposContainer.offsetLeft;
+    reposContainer.scrollTo({ left: scrollTarget, behavior: 'smooth' });
     currentIndex = index;
     updateDots();
   }
 }
 
-function nextSlide(){
+function nextSlide() {
   currentIndex++;
-  if(currentIndex >= reposContainer.children.length){
+  if (currentIndex >= reposContainer.children.length) {
     currentIndex = 0;
   }
   goToSlide(currentIndex);
 }
 
-// ==== Auto-scroll toutes les 3s ====
-function startAutoScroll(){
-  autoInterval = setInterval(nextSlide, 3000);
+// ==== Auto-scroll toutes les 4s ====
+function startAutoScroll() {
+  autoInterval = setInterval(nextSlide, 4000);
 }
 
-function pauseAutoScroll(){
+function pauseAutoScroll() {
   clearInterval(autoInterval);
   clearTimeout(inactivityTimeout);
-  inactivityTimeout = setTimeout(()=>startAutoScroll(), 3000);
+  inactivityTimeout = setTimeout(() => startAutoScroll(), 5000);
 }
 
 // ==== Swipe / Drag ====
 let isDragging = false;
 let startX;
+let startY;
 let scrollStart;
+let isHorizontalSwipe = null;
+const SWIPE_THRESHOLD = 8;
 
-function startDrag(x){
+function startDrag(x, y) {
   isDragging = true;
+  isHorizontalSwipe = null;
   pauseAutoScroll();
   startX = x;
+  startY = y;
   scrollStart = reposContainer.scrollLeft;
+  reposContainer.style.scrollBehavior = 'auto';
 }
 
-function doDrag(x){
-  if(!isDragging) return;
+function doDrag(x, y, e) {
+  if (!isDragging) return;
+
+  const dx = Math.abs(x - startX);
+  const dy = Math.abs(y - startY);
+
+  // Determine swipe direction once threshold is met
+  if (isHorizontalSwipe === null && (dx > SWIPE_THRESHOLD || dy > SWIPE_THRESHOLD)) {
+    isHorizontalSwipe = dx > dy;
+  }
+
+  // If vertical swipe, let the page scroll normally
+  if (isHorizontalSwipe === false) {
+    isDragging = false;
+    return;
+  }
+
+  // Horizontal swipe: prevent page scroll and move carousel
+  if (isHorizontalSwipe && e && e.cancelable) {
+    e.preventDefault();
+  }
+
   const walk = startX - x;
   reposContainer.scrollLeft = scrollStart + walk;
 }
 
-function endDrag(){
-  if(isDragging){
-    // met à jour l'index courant après drag
-    const cards = Array.from(reposContainer.children);
-    const closestIndex = cards.reduce((closest, card, idx)=>{
-      const diff = Math.abs(card.offsetLeft - reposContainer.scrollLeft);
-      return diff < Math.abs(cards[closest].offsetLeft - reposContainer.scrollLeft) ? idx : closest;
-    }, 0);
-    currentIndex = closestIndex;
-    updateDots();
+function endDrag() {
+  if (!isDragging) {
+    isDragging = false;
+    return;
   }
+
+  reposContainer.style.scrollBehavior = 'smooth';
+
+  // Snap to closest card
+  const cards = Array.from(reposContainer.children);
+  if (cards.length) {
+    const containerLeft = reposContainer.offsetLeft;
+    const scrollPos = reposContainer.scrollLeft;
+    let closestIndex = 0;
+    let closestDist = Infinity;
+
+    cards.forEach((card, idx) => {
+      const dist = Math.abs((card.offsetLeft - containerLeft) - scrollPos);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closestIndex = idx;
+      }
+    });
+
+    currentIndex = closestIndex;
+    goToSlide(currentIndex);
+  }
+
   isDragging = false;
+  isHorizontalSwipe = null;
 }
 
 // ==== Fetch Repos ====
-async function fetchRepos(user){
-  try{
+async function fetchRepos(user) {
+  try {
     const res = await fetch(`https://api.github.com/users/${user}/repos`);
-    if(!res.ok) throw new Error(`HTTP error ${res.status}`);
+    if (!res.ok) throw new Error(`HTTP error ${res.status}`);
     const repos = await res.json();
-    if(!repos.length){
+    if (!repos.length) {
       reposContainer.textContent = "Aucun projet trouvé.";
       return;
     }
-    repos.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
-    const latest = repos.slice(0,3);
-    
-    // Attendre la création de toutes les cartes pour récupérer les langages
+    repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+    const latest = repos.slice(0, 3);
+
     const cards = await Promise.all(latest.map(repo => createRepoCard(repo)));
     cards.forEach(card => reposContainer.appendChild(card));
 
     createDots(latest.length);
     startAutoScroll();
-  } catch(err){
+  } catch (err) {
     console.error(err);
     reposContainer.textContent = "Impossible de récupérer les projets.";
   }
 }
 
 // ==== Événements ====
-reposContainer.addEventListener('mousedown', e=>startDrag(e.pageX));
-reposContainer.addEventListener('mousemove', e=>doDrag(e.pageX));
+reposContainer.addEventListener('mousedown', e => {
+  e.preventDefault();
+  startDrag(e.pageX, e.pageY);
+});
+reposContainer.addEventListener('mousemove', e => doDrag(e.pageX, e.pageY, e));
 reposContainer.addEventListener('mouseup', endDrag);
 reposContainer.addEventListener('mouseleave', endDrag);
 
-reposContainer.addEventListener('touchstart', e=>startDrag(e.touches[0].pageX), {passive:true});
-reposContainer.addEventListener('touchmove', e=>doDrag(e.touches[0].pageX), {passive:true});
+// CRITICAL FIX: passive:false to allow preventDefault on touchmove (fixes mobile scroll)
+reposContainer.addEventListener('touchstart', e => {
+  startDrag(e.touches[0].pageX, e.touches[0].pageY);
+}, { passive: true });
+
+reposContainer.addEventListener('touchmove', e => {
+  doDrag(e.touches[0].pageX, e.touches[0].pageY, e);
+}, { passive: false });
+
 reposContainer.addEventListener('touchend', endDrag);
 
-reposContainer.addEventListener('wheel', pauseAutoScroll, {passive:true});
+reposContainer.addEventListener('wheel', pauseAutoScroll, { passive: true });
 
 // ==== INIT ====
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
   fetchRepos(username);
 });

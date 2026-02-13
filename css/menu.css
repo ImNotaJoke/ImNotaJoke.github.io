@@ -5,12 +5,13 @@
     margin-top: 15px;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background-color: #222;
+    background-color: rgba(22, 27, 34, 0.98);
+    backdrop-filter: blur(12px);
     list-style: none;
     padding: 8px 0;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(48, 54, 61, 0.8);
     min-width: 220px;
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -36,7 +37,7 @@
     margin-left: -8px;
     border-width: 8px;
     border-style: solid;
-    border-color: transparent transparent #222 transparent;
+    border-color: transparent transparent rgba(22, 27, 34, 0.98) transparent;
 }
 
 nav li:hover .submenu {
@@ -51,19 +52,19 @@ nav li:hover .submenu {
 }
 
 .submenu li a {
-    color: #cbd5e1;
+    color: #8b949e;
     text-decoration: none;
     display: block;
     padding: 12px 20px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     transition: all 0.2s ease;
     border-left: 3px solid transparent;
 }
 
 .submenu li a:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #4b9191;
-    border-left-color: #4b9191;
+    background-color: rgba(88, 166, 255, 0.06);
+    color: #58a6ff;
+    border-left-color: #58a6ff;
     padding-left: 24px;
 }
 

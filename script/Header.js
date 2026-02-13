@@ -13,7 +13,6 @@ burger.addEventListener('click', () => {
 // Fermer menu si clic en dehors
 document.addEventListener("click", (e) => {
   if(nav.classList.contains("active")) {
-    // Vérifie que le clic n'est ni sur nav ni sur burger
     if(!nav.contains(e.target) && !burger.contains(e.target)) {
       nav.classList.remove("active");
       burger.classList.remove("toggle");
@@ -22,17 +21,27 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Fermer le menu mobile après avoir cliqué sur un lien
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 728) {
+      nav.classList.remove('active');
+      burger.classList.remove('toggle');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
 
-
-// Effet de vague sur le header lors du scroll pour le style
+// Header shadow on scroll
 const header = document.querySelector('header');
-let scrollTimeout;
+let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
-  header.style.setProperty('--wave-speed', '3s'); // accélère temporairement
-  header.style.animationDuration = '3s';
-  clearTimeout(scrollTimeout);
-  scrollTimeout = setTimeout(() => {
-    header.style.animationDuration = '6s'; // revient à normal
-  }, 300);
-});
+  const scrollY = window.scrollY;
+  if (scrollY > 50) {
+    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
+  } else {
+    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+  }
+  lastScroll = scrollY;
+}, { passive: true });

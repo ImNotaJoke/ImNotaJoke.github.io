@@ -1,11 +1,16 @@
 footer {
-  background-color: #222;
-  color: white;
+  background: linear-gradient(135deg, #161b22, #1a1a2e);
+  color: #8b949e;
   text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+  padding: 1.2rem;
+  font-size: 0.85rem;
   width: 100%;
   position: relative;
+  border-top: 1px solid rgba(48, 54, 61, 0.5);
+}
+
+footer p {
+  margin: 0;
 }
 
 /* Liste sans puce pour conditions générales, etc. */
@@ -30,9 +35,11 @@ footer li {
 /* --- Apparition uniquement en bas de page --- */
 footer {
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 footer.visible {
   opacity: 1;
+  transform: translateY(0);
 }
