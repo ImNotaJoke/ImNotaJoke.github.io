@@ -54,7 +54,6 @@ export default function Carousel() {
     };
   }, [repos.length, startAutoScroll]);
 
-  // Touch/drag support
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollStart = useRef(0);
@@ -78,7 +77,6 @@ export default function Carousel() {
     isDragging.current = false;
     if (containerRef.current) {
       containerRef.current.style.scrollBehavior = "smooth";
-      // snap to closest
       const container = containerRef.current;
       const cards = Array.from(container.children) as HTMLElement[];
       let closestIdx = 0;

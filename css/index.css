@@ -1,4 +1,3 @@
-/* ===================== Global ===================== */
 html {
   scroll-behavior: smooth;
 }
@@ -40,7 +39,6 @@ h1::after {
   z-index: -1;
 }
 
-/* ===================== Scroll Reveal ===================== */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -52,20 +50,16 @@ h1::after {
   transform: translateY(0);
 }
 
-/* ===================== Shared Logic (Hero, À propos, Deployments) ===================== */
-
-/* AJOUT : #deployments est ajouté ici pour avoir exactement les mêmes dimensions */
 #hero, 
 #about-preview,
 #deployments {
-  margin: 50px auto;    /* Même marge verticale et centrage */
-  max-width: 900px;     /* Même largeur maximale pour tout le monde */
-  border-radius: 12px;  /* Bords arrondis */
-  padding: 40px;        /* Padding harmonisé */
-  box-sizing: border-box; /* S'assure que le padding ne casse pas la largeur */
+  margin: 50px auto;
+  max-width: 900px;
+  border-radius: 12px;
+  padding: 40px;
+  box-sizing: border-box;
 }
 
-/* ===================== Spécifique Hero ===================== */
 #hero {
   text-align: center;
   background: linear-gradient(135deg, #091369, #050d52);
@@ -111,7 +105,6 @@ h1::after {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* ===================== Spécifique À propos ===================== */
 #about-preview {
   background-color: #161b22;
   text-align: justify;
@@ -153,9 +146,7 @@ h1::after {
   box-shadow: 0 4px 16px rgba(88, 166, 255, 0.35);
 }
 
-/* ===================== Spécifique Deployments ===================== */
 #deployments {
-  /* Les marges et paddings sont gérés plus haut dans "Shared Logic" */
 }
 
 #deployments h2 {
@@ -256,7 +247,6 @@ h1::after {
   }
 }
 
-/* ===================== Responsive ===================== */
 @media (max-width: 768px) {
   main {
     padding-top: 100px;
@@ -289,14 +279,12 @@ h1::after {
   }
 }
 
-/* ===================== Repos GitHub ===================== */
 #repos-section {
   position: relative;
   padding: 0 10px;
 }
 
 #repos-section h1 {
-  /* handled globally */
 }
 
 .repos-container {
@@ -412,7 +400,6 @@ h1::after {
   text-decoration: underline;
 }
 
-/* ===================== Carousel Dots ===================== */
 .repos-dots {
   display: none;
   justify-content: center;
@@ -454,7 +441,6 @@ h1::after {
   }
 }
 
-/* ===================== Mobile Carousel ===================== */
 @media (max-width: 768px) {
   .repos-container {
     flex-wrap: nowrap;
@@ -476,7 +462,6 @@ h1::after {
   }
 }
 
-/* ===================== Tablet Carousel ===================== */
 @media (min-width: 769px) and (max-width: 1024px) {
   .repo {
     flex: 0 0 48%;

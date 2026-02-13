@@ -81,7 +81,6 @@ export function useRepoLanguages(languagesUrl: string) {
         const data = await res.json();
         setLanguages(Object.keys(data));
       } catch {
-        // ignore
       }
     }
     fetchLangs();

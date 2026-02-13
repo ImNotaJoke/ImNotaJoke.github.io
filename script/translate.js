@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.forEach(el => {
       const key = el.getAttribute('data-translate-key');
       if (translations[lang] && translations[lang][key]) {
-        // Handle placeholders in input/textarea
         if (el.placeholder && (key.includes('placeholder') || el.tagName === 'INPUT' || el.tagName === 'TEXTAREA')) {
           el.placeholder = translations[lang][key];
         } else {

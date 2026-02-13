@@ -11,7 +11,6 @@ export default function About() {
 
   return (
     <main>
-      {/* SECTION ABOUT */}
       <section id="about-section" className="about-section">
         <h1>{t("about_h1")}</h1>
         <div className="about-content">
@@ -26,7 +25,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* COMPÉTENCES TECHNIQUES */}
       <section id="skills-section" className="skills-section">
         <h2>{t("skills_h2")}</h2>
         <div className="skills-grid">
@@ -69,7 +67,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* SOFT SKILLS */}
       <section className="skills-section">
         <h2>{t("soft_skills_h2")}</h2>
         <div className="skills-grid">
@@ -82,7 +79,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* PARCOURS */}
       <section id="timeline-section" className="timeline-section">
         <h2>{t("timeline_h2")}</h2>
         <div className="timeline">
@@ -97,7 +93,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* INTÉRÊTS */}
       <section className="interests-section">
         <h2>{t("interests_h2")}</h2>
         <ul className="interests-list">

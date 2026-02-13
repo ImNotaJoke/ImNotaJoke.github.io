@@ -100,7 +100,6 @@
   text-decoration: underline;
 }
 
-/* Dots */
 .repos-dots {
   display: none;
   justify-content: center;
@@ -142,7 +141,6 @@
   }
 }
 
-/* Mobile Carousel */
 @media (max-width: 768px) {
   .repos-container {
     flex-wrap: nowrap;
@@ -164,7 +162,6 @@
   }
 }
 
-/* Tablet */
 @media (min-width: 769px) and (max-width: 1024px) {
   .repos-container .repo {
     flex: 0 0 48%;

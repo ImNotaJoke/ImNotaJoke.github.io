@@ -79,7 +79,7 @@ header nav a.active {
 header::after {
   content: "";
   position: absolute;
-  bottom: -3px;
+  bottom: -11px;
   left: 0;
   width: 100%;
   height: 40px;
@@ -94,7 +94,7 @@ header::after {
 header::before {
   content: "";
   position: absolute;
-  bottom: -6px;
+  bottom: -14px;
   left: 0;
   width: 100%;
   height: 48px;
@@ -173,7 +173,6 @@ header::before {
     color: #58a6ff;
   }
 
-  /* Reset underline effect for mobile */
   header nav > li > a::after {
     display: none;
   }
@@ -227,7 +226,6 @@ main {
   padding-top: 120px;
 }
 
-/* Language Switcher */
 .lang-switcher {
   position: absolute;
   top: 50%;
@@ -266,7 +264,6 @@ main {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* CV Button Styles */
 .cv-btn-container {
   display: flex;
   align-items: center;

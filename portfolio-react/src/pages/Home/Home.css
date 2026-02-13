@@ -1,4 +1,3 @@
-/* ===================== Global ===================== */
 html {
   scroll-behavior: smooth;
 }
@@ -40,7 +39,6 @@ h1::after {
   z-index: -1;
 }
 
-/* ===================== Scroll Reveal ===================== */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -52,7 +50,6 @@ h1::after {
   transform: translateY(0);
 }
 
-/* ===================== Shared Sections ===================== */
 #hero, 
 #about-preview,
 #deployments {
@@ -63,7 +60,6 @@ h1::after {
   box-sizing: border-box;
 }
 
-/* ===================== Hero ===================== */
 #hero {
   text-align: center;
   background: linear-gradient(135deg, #091369, #050d52);
@@ -109,7 +105,6 @@ h1::after {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* ===================== About Preview ===================== */
 #about-preview {
   background-color: #161b22;
   text-align: justify;
@@ -151,7 +146,6 @@ h1::after {
   box-shadow: 0 4px 16px rgba(88, 166, 255, 0.35);
 }
 
-/* ===================== Deployments ===================== */
 #deployments h2 {
   color: #ffffff;
   margin-bottom: 30px;
@@ -241,13 +235,11 @@ h1::after {
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* ===================== Repos Section ===================== */
 #repos-section {
   position: relative;
   padding: 0 10px;
 }
 
-/* ===================== Responsive ===================== */
 @media (max-width: 768px) {
   main {
     padding-top: 100px;

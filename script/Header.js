@@ -1,7 +1,6 @@
 const burger = document.getElementById('burger');
 const nav = document.querySelector('nav');
 
-// Gestion de l'état accessibilité initial
 burger.setAttribute('aria-expanded', 'false');
 
 burger.addEventListener('click', () => {
@@ -10,7 +9,6 @@ burger.addEventListener('click', () => {
   burger.setAttribute('aria-expanded', isActive);
 });
 
-// Fermer menu si clic en dehors
 document.addEventListener("click", (e) => {
   if(nav.classList.contains("active")) {
     if(!nav.contains(e.target) && !burger.contains(e.target)) {
@@ -21,7 +19,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Fermer le menu mobile après avoir cliqué sur un lien
 nav.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     if (window.innerWidth <= 728) {
@@ -32,7 +29,6 @@ nav.querySelectorAll('a').forEach(link => {
   });
 });
 
-// Header shadow on scroll
 const header = document.querySelector('header');
 let lastScroll = 0;
 

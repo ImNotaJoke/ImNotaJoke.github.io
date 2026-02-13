@@ -11,7 +11,6 @@ export default function Contact() {
 
   return (
     <main>
-      {/* Photo + social orbits */}
       <div className="photo-container">
         <img src="/img/photo.jpg" alt="Photo de profil" className="profile-photo" />
         <div className="orbit">
@@ -31,7 +30,6 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* FAQ */}
       <section id="faq-section" className="faq-section">
         <h1>{t("faq_h1")}</h1>
         <ul>
@@ -43,7 +41,6 @@ export default function Contact() {
         </ul>
       </section>
 
-      {/* Contact form + CV */}
       <section id="contact-section" className="contact-section">
         <h1>{t("contact_h1")}</h1>
         <div className="contact-content">
@@ -101,7 +98,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map */}
       <section id="map-section" className="map-section">
         <h1>{t("map_h1")}</h1>
         <iframe

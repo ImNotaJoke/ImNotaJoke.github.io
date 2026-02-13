@@ -23,7 +23,6 @@ section {
   margin-bottom: 80px;
 }
 
-/* TITRES */
 h1, h2 {
   font-size: 3rem;
   color: #fff;
@@ -45,7 +44,6 @@ h2::after {
   z-index: -1;
 }
 
-/* ABOUT CONTENT */
 .about-content {
   display: flex;
   align-items: center;
@@ -92,7 +90,6 @@ h2::after {
   box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
 }
 
-/* SKILLS */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -132,7 +129,6 @@ h2::after {
   transform: scale(1.1);
 }
 
-/* TIMELINE */
 .timeline-item {
   margin-bottom: 20px;
   padding: 15px 15px 15px 20px;
@@ -161,7 +157,6 @@ h2::after {
   line-height: 1.5;
 }
 
-/* INTERESTS */
 .interests-list {
   list-style: none;
   padding: 0;
@@ -183,7 +178,6 @@ h2::after {
   background: rgba(22, 27, 34, 0.8);
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column-reverse;

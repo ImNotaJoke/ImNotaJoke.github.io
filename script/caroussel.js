@@ -30,7 +30,6 @@ let currentIndex = 0;
 let autoInterval;
 let inactivityTimeout;
 
-// ==== Création des cartes ====
 async function createRepoCard(repo) {
   const repoDiv = document.createElement("div");
   repoDiv.className = "repo";
@@ -102,7 +101,6 @@ async function createRepoCard(repo) {
   return repoDiv;
 }
 
-// ==== Dots ====
 function createDots(num) {
   dotsContainer.innerHTML = "";
   for (let i = 0; i < num; i++) {
@@ -123,15 +121,12 @@ function updateDots() {
   if (dots[currentIndex]) dots[currentIndex].classList.add("active");
 }
 
-// ==== Navigation card par card ====
 function goToSlide(index) {
   const cards = reposContainer.children;
   if (!cards.length) return;
-  // Clamp index
   index = Math.max(0, Math.min(index, cards.length - 1));
   const card = cards[index];
   if (card) {
-    // Smooth scroll to the card
     const scrollTarget = card.offsetLeft - reposContainer.offsetLeft;
     reposContainer.scrollTo({ left: scrollTarget, behavior: 'smooth' });
     currentIndex = index;
@@ -147,7 +142,6 @@ function nextSlide() {
   goToSlide(currentIndex);
 }
 
-// ==== Auto-scroll toutes les 4s ====
 function startAutoScroll() {
   autoInterval = setInterval(nextSlide, 4000);
 }
@@ -158,7 +152,6 @@ function pauseAutoScroll() {
   inactivityTimeout = setTimeout(() => startAutoScroll(), 5000);
 }
 
-// ==== Swipe / Drag ====
 let isDragging = false;
 let startX;
 let startY;
@@ -182,18 +175,15 @@ function doDrag(x, y, e) {
   const dx = Math.abs(x - startX);
   const dy = Math.abs(y - startY);
 
-  // Determine swipe direction once threshold is met
   if (isHorizontalSwipe === null && (dx > SWIPE_THRESHOLD || dy > SWIPE_THRESHOLD)) {
     isHorizontalSwipe = dx > dy;
   }
 
-  // If vertical swipe, let the page scroll normally
   if (isHorizontalSwipe === false) {
     isDragging = false;
     return;
   }
 
-  // Horizontal swipe: prevent page scroll and move carousel
   if (isHorizontalSwipe && e && e.cancelable) {
     e.preventDefault();
   }
@@ -210,7 +200,6 @@ function endDrag() {
 
   reposContainer.style.scrollBehavior = 'smooth';
 
-  // Snap to closest card
   const cards = Array.from(reposContainer.children);
   if (cards.length) {
     const containerLeft = reposContainer.offsetLeft;
@@ -234,7 +223,6 @@ function endDrag() {
   isHorizontalSwipe = null;
 }
 
-// ==== Fetch Repos ====
 async function fetchRepos(user) {
   try {
     const res = await fetch(`https://api.github.com/users/${user}/repos`);
@@ -258,7 +246,6 @@ async function fetchRepos(user) {
   }
 }
 
-// ==== Événements ====
 reposContainer.addEventListener('mousedown', e => {
   e.preventDefault();
   startDrag(e.pageX, e.pageY);
@@ -267,7 +254,6 @@ reposContainer.addEventListener('mousemove', e => doDrag(e.pageX, e.pageY, e));
 reposContainer.addEventListener('mouseup', endDrag);
 reposContainer.addEventListener('mouseleave', endDrag);
 
-// CRITICAL FIX: passive:false to allow preventDefault on touchmove (fixes mobile scroll)
 reposContainer.addEventListener('touchstart', e => {
   startDrag(e.touches[0].pageX, e.touches[0].pageY);
 }, { passive: true });
@@ -280,7 +266,6 @@ reposContainer.addEventListener('touchend', endDrag);
 
 reposContainer.addEventListener('wheel', pauseAutoScroll, { passive: true });
 
-// ==== INIT ====
 document.addEventListener("DOMContentLoaded", () => {
   fetchRepos(username);
 });

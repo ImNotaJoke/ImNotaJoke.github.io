@@ -19,13 +19,11 @@ export default function Home() {
 
   return (
     <main>
-      {/* Hero Section */}
       <section id="hero" className="reveal" ref={heroRef}>
         <h1>{t("hero_h1")}</h1>
         <p>{t("hero_p")}</p>
       </section>
 
-      {/* Sites Déployés */}
       <section id="deployments" className="reveal" ref={deployRef}>
         <h2>{t("deploy_h2")}</h2>
         <div className="deploy-grid">
@@ -57,7 +55,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About preview */}
       <section id="about-preview" className="reveal" ref={aboutRef}>
         <h2>{t("about_preview_h2")}</h2>
         <p>{t("about_preview_p")}</p>
@@ -68,7 +65,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Repos */}
       <div className="reveal" ref={reposLabelRef}>
         <h1>{t("repos_h1")}</h1>
       </div>

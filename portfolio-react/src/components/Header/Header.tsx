@@ -8,12 +8,10 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMenuOpen(false);
   }, [location]);
 
-  // Header shadow on scroll
   useEffect(() => {
     const onScroll = () => {
       const header = document.querySelector("header");
@@ -98,6 +96,13 @@ export default function Header() {
           </a>
         </li>
       </nav>
+
+      <svg className="header-wave header-wave-1" viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C80,15 180,0 300,8 C420,18 500,0 600,6 C700,16 800,0 900,8 C1020,18 1100,0 1200,0 V40 H0 Z" fill="rgba(13,17,23,0.95)" />
+      </svg>
+      <svg className="header-wave header-wave-2" viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C120,10 280,0 450,8 C620,0 750,14 900,4 C1050,0 1150,12 1200,0 V48 H0 Z" fill="rgba(13,17,23,0.45)" />
+      </svg>
     </header>
   );
 }
