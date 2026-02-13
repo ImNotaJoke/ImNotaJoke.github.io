@@ -1,0 +1,101 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding-top: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2em;
+  color: #58a6ff;
+}
+
+/* Cards container */
+#repos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Repo card */
+#repos .repo {
+  flex: 1 1 300px;
+  max-width: 400px;
+  background-color: #161b22;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid rgba(48, 54, 61, 0.6);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#repos .repo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  border-color: rgba(88, 166, 255, 0.3);
+}
+
+#repos .repo h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.6em;
+}
+
+#repos .repo h2 a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#repos .repo h2 a:hover {
+  text-decoration: underline;
+}
+
+.languages span {
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #fff;
+}
+
+#repos .repo p.description {
+  margin: 12px 0;
+  color: #8b949e;
+}
+
+.authors {
+  margin-right: 12px;
+  color: #6bc3fa;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.authors:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  #repos .repo {
+    flex: 1 1 90%;
+  }
+}

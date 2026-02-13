@@ -1,0 +1,281 @@
+/* ===================== Global ===================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 110px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+}
+
+h1 {
+  display: inline-block;
+  position: relative;
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 1em;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.1em;
+  width: 100%;
+  height: 0.35em;
+  background: linear-gradient(120deg, #2234dd 20%, transparent 30%, #1523a8 50%, transparent 70%, #1b2bbb 80%);
+  transform: rotate(-2deg);
+  z-index: -1;
+}
+
+/* ===================== Scroll Reveal ===================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================== Shared Sections ===================== */
+#hero, 
+#about-preview,
+#deployments {
+  margin: 50px auto;
+  max-width: 900px;
+  border-radius: 12px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* ===================== Hero ===================== */
+#hero {
+  text-align: center;
+  background: linear-gradient(135deg, #091369, #050d52);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(88, 166, 255, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(34, 52, 221, 0.06) 0%, transparent 50%);
+  animation: hero-glow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes hero-glow {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(5%, 3%); }
+}
+
+#hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+#hero h1::after {
+  display: none;
+}
+
+#hero p {
+  font-size: 1.15rem;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: justify;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===================== About Preview ===================== */
+#about-preview {
+  background-color: #161b22;
+  text-align: justify;
+  border: 1px solid rgba(48, 54, 61, 0.6);
+  transition: border-color 0.3s ease;
+}
+
+#about-preview:hover {
+  border-color: rgba(88, 166, 255, 0.2);
+}
+
+#about-preview h2 {
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#about-preview p {
+  line-height: 1.7;
+  color: #8b949e;
+}
+
+#about-preview .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background-color: #58a6ff;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 2px 8px rgba(88, 166, 255, 0.2);
+}
+
+#about-preview .btn:hover {
+  background-color: #1b2bbb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(88, 166, 255, 0.35);
+}
+
+/* ===================== Deployments ===================== */
+#deployments h2 {
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.deploy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.deploy-card {
+  position: relative;
+  display: block;
+  background: #161b22;
+  border-radius: 12px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.deploy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(88, 166, 255, 0.1);
+}
+
+.deploy-card span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+.deploy-card span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1000px;
+  height: 1000px;
+  background: conic-gradient(transparent, transparent, transparent, #58a6ff);
+  transform: translate(-50%, -50%);
+  animation: animate-border 4s linear infinite;
+}
+
+.deploy-card::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #161b22;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.deploy-card .content {
+  position: relative;
+  z-index: 2;
+  padding: 25px;
+  color: #c9d1d9;
+}
+
+.deploy-card h3 {
+  margin: 0 0 12px 0;
+  color: #58a6ff;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.deploy-card:hover h3 {
+  color: #79bbff;
+}
+
+.deploy-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #8b949e;
+}
+
+@keyframes animate-border {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ===================== Repos Section ===================== */
+#repos-section {
+  position: relative;
+  padding: 0 10px;
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 768px) {
+  main {
+    padding-top: 100px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #hero p {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  #hero, 
+  #about-preview,
+  #deployments {
+    padding: 25px 20px;
+    margin: 20px 5px;
+    border-radius: 10px;
+  }
+
+  .deploy-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}

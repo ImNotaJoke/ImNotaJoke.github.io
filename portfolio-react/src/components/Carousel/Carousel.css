@@ -1,0 +1,176 @@
+.repos-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  margin-top: 30px;
+  position: relative;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.repos-container:active {
+  cursor: grabbing;
+}
+
+.repos-container::-webkit-scrollbar {
+  display: none;
+}
+
+.repos-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.repos-container .repo {
+  flex: 0 0 31%;
+  background-color: #161b22;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid rgba(48, 54, 61, 0.6);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+.repos-container .repo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  border-color: rgba(88, 166, 255, 0.3);
+}
+
+.repos-container .repo h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.4em;
+}
+
+.repos-container .repo h2 a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.repos-container .repo h2 a:hover {
+  color: #79bbff;
+  text-decoration: underline;
+}
+
+.languages {
+  margin-bottom: 8px;
+}
+
+.languages span {
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #fff;
+  transition: transform 0.2s;
+}
+
+.languages span:hover {
+  transform: scale(1.05);
+}
+
+.repo p.description {
+  margin: 10px 0;
+  color: #8b949e;
+  flex-grow: 1;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.repo-author a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9em;
+  transition: color 0.2s;
+}
+
+.repo-author a:hover {
+  color: #79bbff;
+  text-decoration: underline;
+}
+
+/* Dots */
+.repos-dots {
+  display: none;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 8px 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #30363d;
+  cursor: pointer;
+  transition: background 0.4s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s;
+  border: none;
+}
+
+.dot:hover {
+  transform: scale(1.4);
+  background: #484f58;
+}
+
+.dot.active {
+  background: #58a6ff;
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.6);
+  transform: scale(1.2);
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(88, 166, 255, 0.5);
+    transform: scale(1.2);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(88, 166, 255, 0.8), 0 0 24px rgba(88, 166, 255, 0.3);
+    transform: scale(1.35);
+  }
+}
+
+/* Mobile Carousel */
+@media (max-width: 768px) {
+  .repos-container {
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    width: 100%;
+    gap: 0;
+    scroll-snap-type: x mandatory;
+  }
+
+  .repos-container .repo {
+    flex: 0 0 100%;
+    margin-right: 0;
+    scroll-snap-align: start;
+    border-radius: 10px;
+  }
+
+  .repos-dots {
+    display: flex;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .repos-container .repo {
+    flex: 0 0 48%;
+  }
+
+  .repos-dots {
+    display: flex;
+  }
+}
