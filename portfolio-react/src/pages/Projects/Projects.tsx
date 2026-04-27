@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useTranslation } from "../../i18n/I18nContext";
-import { useGitHubRepos } from "../../hooks/useGitHubRepos";
+import { useGitHubReposWithCache } from "../../hooks/useGitHubReposWithCache";
 import RepoCard from "../../components/RepoCard/RepoCard";
 import "./Projects.css";
 
 export default function Projects() {
   const { t } = useTranslation();
-  const { repos, loading, error } = useGitHubRepos();
+  const { repos, loading, error } = useGitHubReposWithCache();
 
   useEffect(() => {
     document.title = t("title_projects");

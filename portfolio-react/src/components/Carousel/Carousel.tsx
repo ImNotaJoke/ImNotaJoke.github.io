@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect, useCallback } from "react";
-import { useGitHubRepos } from "../../hooks/useGitHubRepos";
+import { useGitHubReposWithCache } from "../../hooks/useGitHubReposWithCache";
 import RepoCard from "../RepoCard/RepoCard";
 import "./Carousel.css";
 
 export default function Carousel() {
-  const { repos, loading, error } = useGitHubRepos(3);
+  const { repos, loading, error } = useGitHubReposWithCache(3);
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const autoRef = useRef<ReturnType<typeof setInterval> | null>(null);

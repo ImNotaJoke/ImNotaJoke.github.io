@@ -1,9 +1,151 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
 import { useTranslation } from "../../i18n/I18nContext";
+import EnrichedTimeline from "../../components/EnrichedTimeline/EnrichedTimeline";
+import InteractiveSkillCard from "../../components/InteractiveSkillCard/InteractiveSkillCard";
+import SkillModal from "../../components/SkillModal/SkillModal";
 import "./About.css";
+
+interface Skill {
+  id: string;
+  name: string;
+  icon?: ReactNode;
+  shortKey: string;
+  longKey: string;
+  isHardSkill: boolean;
+}
+
+const HARDSKILLS: Skill[] = [
+  {
+    id: "html",
+    name: "HTML",
+    icon: <i className="devicon-html5-plain colored" />,
+    shortKey: "html_short",
+    longKey: "html_long",
+    isHardSkill: true,
+  },
+  {
+    id: "css",
+    name: "CSS",
+    icon: <i className="devicon-css3-plain colored" />,
+    shortKey: "css_short",
+    longKey: "css_long",
+    isHardSkill: true,
+  },
+  {
+    id: "java",
+    name: "Java",
+    icon: <i className="devicon-java-plain colored" />,
+    shortKey: "java_short",
+    longKey: "java_long",
+    isHardSkill: true,
+  },
+  {
+    id: "sql",
+    name: "SQL",
+    icon: <i className="devicon-mysql-plain colored" />,
+    shortKey: "sql_short",
+    longKey: "sql_long",
+    isHardSkill: true,
+  },
+  {
+    id: "bash",
+    name: "Bash",
+    icon: <i className="devicon-bash-plain colored" />,
+    shortKey: "bash_short",
+    longKey: "bash_long",
+    isHardSkill: true,
+  },
+  {
+    id: "git",
+    name: "Git",
+    icon: <i className="devicon-git-plain colored" />,
+    shortKey: "git_short",
+    longKey: "git_long",
+    isHardSkill: true,
+  },
+  {
+    id: "github",
+    name: "GitHub",
+    icon: <i className="devicon-github-original colored" />,
+    shortKey: "github_short",
+    longKey: "github_long",
+    isHardSkill: true,
+  },
+  {
+    id: "javascript",
+    name: "JavaScript",
+    icon: <i className="devicon-javascript-plain colored" />,
+    shortKey: "javascript_short",
+    longKey: "javascript_long",
+    isHardSkill: true,
+  },
+  {
+    id: "linux",
+    name: "Linux",
+    icon: <i className="devicon-linux-plain colored" />,
+    shortKey: "linux_short",
+    longKey: "linux_long",
+    isHardSkill: true,
+  },
+  {
+    id: "docker",
+    name: "Docker",
+    icon: <i className="devicon-docker-plain colored" />,
+    shortKey: "docker_short",
+    longKey: "docker_long",
+    isHardSkill: true,
+  },
+];
+
+const SOFTSKILLS: Skill[] = [
+  {
+    id: "soft_1",
+    name: "Communication",
+    shortKey: "soft_skill_1_short",
+    longKey: "soft_skill_1_long",
+    isHardSkill: false,
+  },
+  {
+    id: "soft_2",
+    name: "Patience",
+    shortKey: "soft_skill_2_short",
+    longKey: "soft_skill_2_long",
+    isHardSkill: false,
+  },
+  {
+    id: "soft_3",
+    name: "Listening",
+    shortKey: "soft_skill_3_short",
+    longKey: "soft_skill_3_long",
+    isHardSkill: false,
+  },
+  {
+    id: "soft_4",
+    name: "Teamwork",
+    shortKey: "soft_skill_4_short",
+    longKey: "soft_skill_4_long",
+    isHardSkill: false,
+  },
+  {
+    id: "soft_5",
+    name: "Autonomy",
+    shortKey: "soft_skill_5_short",
+    longKey: "soft_skill_5_long",
+    isHardSkill: false,
+  },
+  {
+    id: "soft_6",
+    name: "Curiosity",
+    shortKey: "soft_skill_6_short",
+    longKey: "soft_skill_6_long",
+    isHardSkill: false,
+  },
+];
 
 export default function About() {
   const { t } = useTranslation();
+  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
 
   useEffect(() => {
     document.title = t("title_about");
@@ -28,70 +170,37 @@ export default function About() {
       <section id="skills-section" className="skills-section">
         <h2>{t("skills_h2")}</h2>
         <div className="skills-grid">
-          <div className="skill-card">
-            <i className="devicon-html5-plain colored" />
-            <span>HTML</span>
-          </div>
-          <div className="skill-card">
-            <i className="devicon-css3-plain colored" />
-            <span>CSS</span>
-          </div>
-          <div className="skill-card">
-            <i className="devicon-java-plain colored" />
-            <span>Java</span>
-          </div>
-          <div className="skill-card">
-            <i className="devicon-mysql-plain colored" />
-            <span>SQL</span>
-          </div>
-          <div className="skill-card">
-            <i className="devicon-bash-plain colored" />
-            <span>Bash</span>
-          </div>
-          <div className="skill-card">
-            <i className="devicon-git-plain colored" />
-            <span>Git</span>
-          </div>
-          <div className="skill-card">
-            <i className="devicon-github-original colored" />
-            <span>GitHub</span>
-          </div>
-          <div className="skill-card">
-            <i className="devicon-javascript-plain colored" />
-            <span>JavaScript</span>
-          </div>
-          <div className="skill-card">
-            <i className="devicon-linux-plain colored" />
-            <span>Linux</span>
-          </div>
+          {HARDSKILLS.map((skill) => (
+            <InteractiveSkillCard
+              key={skill.id}
+              name={skill.name}
+              icon={skill.icon}
+              shortDesc={t(skill.shortKey)}
+              longDesc={t(skill.longKey)}
+              isHardSkill={skill.isHardSkill}
+              onClick={() => setSelectedSkill(skill)}
+            />
+          ))}
         </div>
       </section>
 
       <section className="skills-section">
         <h2>{t("soft_skills_h2")}</h2>
         <div className="skills-grid">
-          <div className="skill-card">{t("soft_skill_1")}</div>
-          <div className="skill-card">{t("soft_skill_2")}</div>
-          <div className="skill-card">{t("soft_skill_3")}</div>
-          <div className="skill-card">{t("soft_skill_4")}</div>
-          <div className="skill-card">{t("soft_skill_5")}</div>
-          <div className="skill-card">{t("soft_skill_6")}</div>
+          {SOFTSKILLS.map((skill) => (
+            <InteractiveSkillCard
+              key={skill.id}
+              name={skill.name}
+              shortDesc={t(skill.shortKey)}
+              longDesc={t(skill.longKey)}
+              isHardSkill={skill.isHardSkill}
+              onClick={() => setSelectedSkill(skill)}
+            />
+          ))}
         </div>
       </section>
 
-      <section id="timeline-section" className="timeline-section">
-        <h2>{t("timeline_h2")}</h2>
-        <div className="timeline">
-          <div className="timeline-item">
-            <span className="year">{t("timeline_item1_year")}</span>
-            <p>{t("timeline_item1_p")}</p>
-          </div>
-          <div className="timeline-item">
-            <span className="year">{t("timeline_item2_year")}</span>
-            <p>{t("timeline_item2_p")}</p>
-          </div>
-        </div>
-      </section>
+      <EnrichedTimeline />
 
       <section className="interests-section">
         <h2>{t("interests_h2")}</h2>
@@ -102,6 +211,18 @@ export default function About() {
           <li>{t("interest_4")}</li>
         </ul>
       </section>
+
+      {/* Skill Modal */}
+      {selectedSkill && (
+        <SkillModal
+          isOpen={!!selectedSkill}
+          skillName={selectedSkill.name}
+          shortDesc={t(selectedSkill.shortKey)}
+          longDesc={t(selectedSkill.longKey)}
+          icon={selectedSkill.icon}
+          onClose={() => setSelectedSkill(null)}
+        />
+      )}
     </main>
   );
 }

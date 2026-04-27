@@ -33,7 +33,6 @@ export default function Contact() {
       <section id="faq-section" className="faq-section">
         <h1>{t("faq_h1")}</h1>
         <ul>
-          <li dangerouslySetInnerHTML={{ __html: t("faq_li1") }} />
           <li dangerouslySetInnerHTML={{ __html: t("faq_li2") }} />
           <li dangerouslySetInnerHTML={{ __html: t("faq_li3") }} />
           <li dangerouslySetInnerHTML={{ __html: t("faq_li4") }} />
