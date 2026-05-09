@@ -132,6 +132,14 @@
   padding: 1rem 0;
 }
 
+.pro-exp-card {
+  padding: 1.2rem 1.1rem;
+  background: rgba(22, 27, 34, 0.72);
+  border: 1px solid rgba(48, 54, 61, 0.7);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(1, 4, 9, 0.28);
+}
+
 .pro-exp-header {
   display: flex;
   justify-content: space-between;
@@ -224,4 +232,5 @@
   .enriched-timeline-section > h2 {
     font-size: 1.4rem;
   }
+
 }

@@ -101,7 +101,7 @@ const translations: Translations = {
     // Enriched timeline - Year 2
     timeline_year2_year: "2025 - 2026",
     timeline_year2_title: "Année 2 - Approfondissement (2024-2025)",
-    timeline_year2_intro: "Consolidation des compétences - Parcours A : Systèmes Informatiques",
+    timeline_year2_intro: "Consolidation des compétences - Parcours A : Développement",
     timeline_year2_courses: "Programmation avancée (Java, Data Structures), Administration Systèmes, Base de Données (SQL), Architecture réseau",
     timeline_year2_sae: "SAÉ2 : Développement application Java / SAÉ3 : Gestion BDD et requêtes SQL",
     timeline_year2_reflection: "Apprentissage : J'ai approfondi ma compréhension des architectures logicielles et des systèmes. Défi relevé : travail en équipe et gestion de projets complexes avec contraintes.",
@@ -112,14 +112,6 @@ const translations: Translations = {
     pro_exp_company: "Militzer & Munch France - Halluin",
     pro_exp_role: "Développeur - Équipe IT",
     pro_exp_description: "Contribution au développement et à la maintenance des applications internes. Travail en équipe IT sur des projets variés.",
-
-    // Enriched timeline - Year 3
-    timeline_year3_year: "2025 - 2026",
-    timeline_year3_title: "Année 3 - Spécialisation (2025-2026)",
-    timeline_year3_intro: "Focus Systèmes Informatiques - Vers l'alternance",
-    timeline_year3_courses: "Cybersécurité, DevOps et containerisation, Administration cloud, Projet professionnel",
-    timeline_year3_sae: "SAÉ4 : Projet intégrateur / Stage d'alternance (à partir d'avril 2026)",
-    timeline_year3_reflection: "Apprentissage actuel : Mise en pratique des compétences en contexte professionnel. Objectifs : maîtriser l'administration système, déployer des solutions cloud robustes, et développer une expertise en cybersécurité.",
 
     // Learning approach
     learning_h2: "Ma philosophie d'apprentissage",
@@ -133,10 +125,10 @@ const translations: Translations = {
       "Baccalauréat Technologique – Spécialités SIN et Mathématiques",
     timeline_item2_year: "2023",
     interests_h2: "Centres d'intérêt",
-    interest_1: "🎮 Jeux vidéo et hardware PC",
-    interest_2: "📸 Photographie",
-    interest_3: "🎨 Design et créativité visuelle",
-    interest_4: "💡 Résolution de problèmes et apprentissage continu",
+    interest_1: " Jeux vidéo et hardware PC",
+    interest_2: " Photographie",
+    interest_3: " Design et créativité visuelle",
+    interest_4: " Résolution de problèmes et apprentissage continu",
     title_contact: "Contact",
     faq_h1: "Avant de me contacter",
     // faq_li1:
@@ -264,7 +256,7 @@ const translations: Translations = {
     // Enriched timeline - Year 2
     timeline_year2_year: "2025 - 2026",
     timeline_year2_title: "Year 2 - Deepening (2024-2025)",
-    timeline_year2_intro: "Consolidating skills - Track A: IT Systems",
+    timeline_year2_intro: "Consolidating skills - Track A: Development",
     timeline_year2_courses: "Advanced Programming (Java, Data Structures), System Administration, Databases (SQL), Network Architecture",
     timeline_year2_sae: "SAÉ2: Java Application Development / SAÉ3: Database Management and SQL Queries",
     timeline_year2_reflection: "Learning: I deepened my understanding of software architecture and systems. Challenge overcome: teamwork and managing complex projects with constraints.",
@@ -275,14 +267,6 @@ const translations: Translations = {
     pro_exp_company: "Militzer & Munch France - Halluin",
     pro_exp_role: "Developer - IT Team",
     pro_exp_description: "Contributing to the development and maintenance of internal applications. Working with the IT team on various projects.",
-
-    // Enriched timeline - Year 3
-    timeline_year3_year: "2025 - 2026",
-    timeline_year3_title: "Year 3 - Specialization (2025-2026)",
-    timeline_year3_intro: "IT Systems Focus - Towards an internship",
-    timeline_year3_courses: "Cybersecurity, DevOps and containerization, Cloud administration, Professional project",
-    timeline_year3_sae: "SAÉ4: Integrator project / Internship (starting April 2026)",
-    timeline_year3_reflection: "Current learning: Applying skills in professional context. Goals: master system administration, deploy robust cloud solutions, and develop cybersecurity expertise.",
 
     // Learning approach
     learning_h2: "My learning philosophy",
@@ -297,22 +281,22 @@ const translations: Translations = {
       "Technological Baccalaureate – SIN and Mathematics Specialties",
     timeline_item2_year: "2023",
     interests_h2: "Interests",
-    interest_1: "🎮 Video games and PC hardware",
-    interest_2: "📸 Photography",
-    interest_3: "🎨 Design and visual creativity",
-    interest_4: "💡 Problem solving and continuous learning",
+    interest_1: " Video games and PC hardware",
+    interest_2: " Photography",
+    interest_3: " Design and visual creativity",
+    interest_4: " Problem solving and continuous learning",
     title_contact: "Contact",
     faq_h1: "Before contacting me",
     // faq_li1:
     //   '📅 Available from <strong>April 2026</strong> for an <strong>8 - 10 week</strong> internship.',
     faq_li2:
-      '📍 Based in the <strong>Tourcoing / Lille</strong> area, open to <strong>remote work</strong>.',
+      ' Based in the <strong>Tourcoing / Lille</strong> area, open to <strong>remote work</strong>.',
     faq_li3:
-      '💻 Interested in <strong>web development</strong>, <strong>Java</strong>, <strong>network administration</strong> and <strong>SQL databases</strong>.',
+      ' Interested in <strong>web development</strong>, <strong>Java</strong>, <strong>network administration</strong> and <strong>SQL databases</strong>.',
     faq_li4:
-      "⚙️ I value code readability, cleanliness, and user experience.",
+      " I value code readability, cleanliness, and user experience.",
     faq_li5:
-      '📨 You can contact me via the form or directly on <strong>LinkedIn</strong> / <strong>gmail</strong>.',
+      ' You can contact me via the form or directly on <strong>LinkedIn</strong> / <strong>gmail</strong>.',
     contact_h1: "Contact me",
     cv_h2: "My Resume",
     cv_download: "Download Resume",

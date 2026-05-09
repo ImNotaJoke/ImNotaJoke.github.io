@@ -69,6 +69,7 @@ export default function EnrichedTimeline() {
                   <h4>Réflexion & Apprentissage</h4>
                   <p>{t(year.reflectionKey)}</p>
                 </div>
+
               </div>
             </div>
           </div>
@@ -78,7 +79,7 @@ export default function EnrichedTimeline() {
       {/* Professional Experience */}
       <div className="professional-exp-section">
         <h3 className="pro-exp-title">{t("pro_exp_title")}</h3>
-        <div className="pro-exp-item">
+        <div className="pro-exp-card">
           <div className="pro-exp-header">
             <h4 className="pro-exp-role">{t("pro_exp_role")}</h4>
             <span className="pro-exp-year">{t("pro_exp_year")}</span>
