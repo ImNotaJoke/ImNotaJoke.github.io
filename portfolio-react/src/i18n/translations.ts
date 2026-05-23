@@ -108,10 +108,10 @@ const translations: Translations = {
 
     // Professional experience
     pro_exp_title: "Expérience Professionnelle",
-    pro_exp_year: "2024 - 2025",
+    pro_exp_year: "Avril - Juin 2026",
     pro_exp_company: "Militzer & Munch France - Halluin",
-    pro_exp_role: "Développeur - Équipe IT",
-    pro_exp_description: "Contribution au développement et à la maintenance des applications internes. Travail en équipe IT sur des projets variés.",
+    pro_exp_role: "Stagiaire Développeur - Équipe IT",
+    pro_exp_description: "Stage de 2,5 mois au sein de l'équipe IT. Contribution au développement et à la maintenance des applications internes sur des projets variés.",
 
     // Learning approach
     learning_h2: "Ma philosophie d'apprentissage",
@@ -131,8 +131,10 @@ const translations: Translations = {
     interest_4: " Résolution de problèmes et apprentissage continu",
     title_contact: "Contact",
     faq_h1: "Avant de me contacter",
-    // faq_li1:
-    //   "📅 Disponible à partir d'avril 2026 pour une offre de stage de 8 - 10 semaines.",
+    faq_li1:
+      "📅 Disponible à partir d'avril 2026 pour une offre de stage de 8 - 10 semaines.",
+    faq_li1_competences:
+      "🛠️ Compétences mobilisables en stage : <strong>JavaScript</strong>, <strong>Node.js</strong>, <strong>n8n</strong>, <strong>Docker</strong>, <strong>GitHub</strong>, <strong>GitLab</strong> et <strong>SQL</strong>.",
     faq_li2:
       "📍 Basé dans le secteur <strong>Tourcoing / Lille</strong>, ouvert au <strong>télétravail</strong>.",
     faq_li3:
@@ -263,10 +265,10 @@ const translations: Translations = {
 
     // Professional experience
     pro_exp_title: "Professional Experience",
-    pro_exp_year: "2024 - 2025",
+    pro_exp_year: "April - June 2026",
     pro_exp_company: "Militzer & Munch France - Halluin",
-    pro_exp_role: "Developer - IT Team",
-    pro_exp_description: "Contributing to the development and maintenance of internal applications. Working with the IT team on various projects.",
+    pro_exp_role: "Software Development Intern - IT Team",
+    pro_exp_description: "A 2.5-month internship within the IT team. Contributed to the development and maintenance of internal applications across various projects.",
 
     // Learning approach
     learning_h2: "My learning philosophy",
@@ -287,16 +289,18 @@ const translations: Translations = {
     interest_4: " Problem solving and continuous learning",
     title_contact: "Contact",
     faq_h1: "Before contacting me",
-    // faq_li1:
-    //   '📅 Available from <strong>April 2026</strong> for an <strong>8 - 10 week</strong> internship.',
+    faq_li1:
+      "📅 Available from April 2026 for an 8 - 10 week internship opportunity.",
+    faq_li1_competences:
+      "🛠️ Internship-ready skills: <strong>JavaScript</strong>, <strong>Node.js</strong>, <strong>n8n</strong>, <strong>Docker</strong>, <strong>GitHub</strong>, <strong>GitLab</strong> and <strong>SQL</strong>.",
     faq_li2:
-      ' Based in the <strong>Tourcoing / Lille</strong> area, open to <strong>remote work</strong>.',
+      "📍 Based in the <strong>Tourcoing / Lille</strong> area, open to <strong>remote work</strong>.",
     faq_li3:
-      ' Interested in <strong>web development</strong>, <strong>Java</strong>, <strong>network administration</strong> and <strong>SQL databases</strong>.',
+      "💻 Interested in <strong>web development</strong>, <strong>Java</strong>, <strong>network administration</strong> and <strong>SQL databases</strong>.",
     faq_li4:
-      " I value code readability, cleanliness, and user experience.",
+      "⚙️ I value code readability, cleanliness, and user experience.",
     faq_li5:
-      ' You can contact me via the form or directly on <strong>LinkedIn</strong> / <strong>gmail</strong>.',
+      "📨 You can contact me via the form or directly on <strong>LinkedIn</strong> / <strong>gmail</strong>.",
     contact_h1: "Contact me",
     cv_h2: "My Resume",
     cv_download: "Download Resume",

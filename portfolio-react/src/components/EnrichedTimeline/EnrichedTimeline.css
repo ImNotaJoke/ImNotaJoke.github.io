@@ -172,7 +172,24 @@
   color: #8b949e;
   font-size: 0.9rem;
   line-height: 1.5;
-  margin: 0;
+  margin: 0 0 0.9rem 0;
+}
+
+.pro-exp-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pro-exp-skill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(1, 4, 9, 0.2);
 }
 
 /* Responsive */

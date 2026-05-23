@@ -1,6 +1,16 @@
 import { useTranslation } from "../../i18n/I18nContext";
 import "./EnrichedTimeline.css";
 
+const INTERNSHIP_SKILLS = [
+  { name: "JavaScript", color: "#f1e05a" },
+  { name: "Node.js", color: "#43853d" },
+  { name: "n8n", color: "#EA4B71" },
+  { name: "Docker", color: "#2496ed" },
+  { name: "GitHub", color: "#6e5494" },
+  { name: "GitLab", color: "#fc6d26" },
+  { name: "SQL", color: "#2b7489" },
+];
+
 interface TimelineYear {
   yearKey: string;
   titleKey: string;
@@ -86,6 +96,13 @@ export default function EnrichedTimeline() {
           </div>
           <p className="pro-exp-company">{t("pro_exp_company")}</p>
           <p className="pro-exp-description">{t("pro_exp_description")}</p>
+          <div className="pro-exp-skills">
+            {INTERNSHIP_SKILLS.map((skill) => (
+              <span key={skill.name} className="pro-exp-skill" style={{ backgroundColor: skill.color }}>
+                {skill.name}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
