@@ -92,19 +92,20 @@ const translations: Translations = {
     timeline_h2: "Parcours Académique & Réflexion",
     // Enriched timeline - Year 1
     timeline_year1_year: "2023 - 2025",
-    timeline_year1_title: "Année 1 - Fondamentaux (2023-2024)",
+    timeline_year1_title: "Année 1 - Fondamentaux (2023-2025)", 
     timeline_year1_intro: "Démarrage du BUT Informatique - Découverte des fondamentaux",
     timeline_year1_courses: "Bases de programmation (Java, HTML/CSS), Mathématiques discrètes, Système et Réseau",
-    timeline_year1_sae: "SAÉ1 : Projet de développement web initial",
+    timeline_year1_sae: "SAÉ1 : Projet de développement web initial / SAE1 : projet de developpement ijava  / SAE2 : projet de developpement java et favafx en un module / SAE2 : Exploitation bdd et requêtes SQL",
     timeline_year1_reflection: "Apprentissage : J'ai découvert les bases du développement et compris l'importance de la rigueur en programmation. Défi maîtrisé : passer des concepts théoriques à la pratique.",
 
     // Enriched timeline - Year 2
     timeline_year2_year: "2025 - 2026",
-    timeline_year2_title: "Année 2 - Approfondissement (2024-2025)",
+    timeline_year2_title: "Année 2 - Approfondissement (2025-2026)",
     timeline_year2_intro: "Consolidation des compétences - Parcours A : Développement",
-    timeline_year2_courses: "Programmation avancée (Java, Data Structures), Administration Systèmes, Base de Données (SQL), Architecture réseau",
-    timeline_year2_sae: "SAÉ2 : Développement application Java / SAÉ3 : Gestion BDD et requêtes SQL",
+    timeline_year2_courses: "Programmation avancée (Java, Data Structures), Administration Systèmes, Base de Données (SQL), Developpement Web (JavaScript, Vite,Node.js),",
+    timeline_year2_sae: "SAE3 : Développement application Java avec design pattern / SAÉ4 : Développement application Java / SAÉ3 : Gestion BDD et requêtes SQL",
     timeline_year2_reflection: "Apprentissage : J'ai approfondi ma compréhension des architectures logicielles et des systèmes. Défi relevé : travail en équipe et gestion de projets complexes avec contraintes.",
+    timeline_year2_stage: "<strong>Stage (Avril - Juin 2026)</strong> : 2,5 mois chez Militzer & Munch — Contribution au développement (JavaScript/Node.js), containerisation Docker, automatisation avec n8n et gestion de bases SQL.",
 
     // Professional experience
     pro_exp_title: "Expérience Professionnelle",
@@ -131,10 +132,6 @@ const translations: Translations = {
     interest_4: " Résolution de problèmes et apprentissage continu",
     title_contact: "Contact",
     faq_h1: "Avant de me contacter",
-    faq_li1:
-      "📅 Disponible à partir d'avril 2026 pour une offre de stage de 8 - 10 semaines.",
-    faq_li1_competences:
-      "🛠️ Compétences mobilisables en stage : <strong>JavaScript</strong>, <strong>Node.js</strong>, <strong>n8n</strong>, <strong>Docker</strong>, <strong>GitHub</strong>, <strong>GitLab</strong> et <strong>SQL</strong>.",
     faq_li2:
       "📍 Basé dans le secteur <strong>Tourcoing / Lille</strong>, ouvert au <strong>télétravail</strong>.",
     faq_li3:
@@ -262,6 +259,7 @@ const translations: Translations = {
     timeline_year2_courses: "Advanced Programming (Java, Data Structures), System Administration, Databases (SQL), Network Architecture",
     timeline_year2_sae: "SAÉ2: Java Application Development / SAÉ3: Database Management and SQL Queries",
     timeline_year2_reflection: "Learning: I deepened my understanding of software architecture and systems. Challenge overcome: teamwork and managing complex projects with constraints.",
+    timeline_year2_stage: "<strong>Internship (April - June 2026)</strong>: 2.5 months at Militzer & Munch — Contributed to development (JavaScript/Node.js), Docker containerization, n8n automation and SQL database work.",
 
     // Professional experience
     pro_exp_title: "Professional Experience",

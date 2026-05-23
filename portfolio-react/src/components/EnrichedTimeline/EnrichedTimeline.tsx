@@ -80,6 +80,14 @@ export default function EnrichedTimeline() {
                   <p>{t(year.reflectionKey)}</p>
                 </div>
 
+                {/* Internship (Year 2) */}
+                {idx === 1 && (
+                  <div className="detail-item">
+                    <h4>Stage</h4>
+                    <p dangerouslySetInnerHTML={{ __html: t("timeline_year2_stage") }} />
+                  </div>
+                )}
+
               </div>
             </div>
           </div>
@@ -98,7 +106,11 @@ export default function EnrichedTimeline() {
           <p className="pro-exp-description">{t("pro_exp_description")}</p>
           <div className="pro-exp-skills">
             {INTERNSHIP_SKILLS.map((skill) => (
-              <span key={skill.name} className="pro-exp-skill" style={{ backgroundColor: skill.color }}>
+              <span
+                key={skill.name}
+                className="pro-exp-skill"
+                style={{ backgroundColor: skill.color }}
+              >
                 {skill.name}
               </span>
             ))}
