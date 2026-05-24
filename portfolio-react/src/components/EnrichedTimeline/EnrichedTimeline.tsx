@@ -64,13 +64,13 @@ export default function EnrichedTimeline() {
               <div className="year-details">
                 {/* Courses */}
                 <div className="detail-item">
-                  <h4>Modules & Concepts</h4>
+                  <h4>Modules & concepts</h4>
                   <p>{t(year.coursesKey)}</p>
                 </div>
 
                 {/* Project */}
                 <div className="detail-item">
-                  <h4>Projet Integré (SAÉ)</h4>
+                  <h4>Projet intégré (SAÉ)</h4>
                   <p>{t(year.saeKey)}</p>
                 </div>
 

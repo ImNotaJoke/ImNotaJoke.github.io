@@ -26,6 +26,66 @@ h1 {
   color: #58a6ff;
 }
 
+.featured-projects,
+.repos-section {
+  margin-bottom: 3rem;
+}
+
+.featured-projects h2,
+.repos-section h2 {
+  margin: 0 0 1.25rem 0;
+  color: #c9d1d9;
+  font-size: 1.45rem;
+}
+
+.repos-section p {
+  margin: 0;
+  color: #8b949e;
+  line-height: 1.6;
+}
+
+.featured-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.project-case-card {
+  background: linear-gradient(180deg, rgba(22, 27, 34, 0.95), rgba(22, 27, 34, 0.82));
+  border: 1px solid rgba(48, 54, 61, 0.65);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.project-case-card h3 {
+  margin: 0 0 14px 0;
+  color: #58a6ff;
+  font-size: 1.2rem;
+}
+
+.project-case-card p {
+  margin: 0 0 10px 0;
+  color: #c9d1d9;
+  line-height: 1.55;
+}
+
+.project-case-card strong {
+  color: #8b949e;
+}
+
+.project-case-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #6bc3fa;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-case-card a:hover {
+  text-decoration: underline;
+}
+
 #repos {
   display: flex;
   flex-wrap: wrap;
