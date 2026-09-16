@@ -167,6 +167,10 @@ const translations: Translations = {
     interest_4: " Résolution de problèmes et apprentissage continu",
     title_contact: "Contact",
     faq_h1: "Avant de me contacter",
+    faq_li1:
+      "📅 Disponible à partir de mi-Mars 2027 pour un stage de 12 à 16 semaines.",
+    faq_li1_competences:
+      "🛠️ Compétences opérationnelles pour le stage : <strong>JavaScript</strong>, <strong>Node.js</strong>, <strong>n8n</strong>, <strong>Docker</strong>, <strong>GitHub</strong>, <strong>GitLab</strong> et <strong>SQL</strong>.",
     faq_li2:
       "📍 Basé dans le secteur <strong>Tourcoing / Lille</strong>, ouvert au <strong>télétravail</strong>.",
     faq_li3:
@@ -358,7 +362,7 @@ const translations: Translations = {
     title_contact: "Contact",
     faq_h1: "Before contacting me",
     faq_li1:
-      "📅 Available from April 2026 for an 8 - 10 week internship opportunity.",
+      "📅 Available from mi-March 2027 for an 12 - 16 week internship opportunity.",
     faq_li1_competences:
       "🛠️ Internship-ready skills: <strong>JavaScript</strong>, <strong>Node.js</strong>, <strong>n8n</strong>, <strong>Docker</strong>, <strong>GitHub</strong>, <strong>GitLab</strong> and <strong>SQL</strong>.",
     faq_li2:
